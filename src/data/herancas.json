@@ -1,0 +1,49 @@
+[
+  {
+    "ancestralidade": "anao",
+    "herancas": [
+      {
+        "heranca": "Anão da forja",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Maximus consectetur sapien blandit malesuada egestas convallis curae morbi porttitor. Mus fringilla sodales aliquam taciti nostra cursus nullam primis pharetra. Proin maximus nunc netus; et suspendisse nascetur. Leo metus nibh ridiculus semper non cubilia. Iaculis aptent conubia placerat eleifend dui. Dis eu et et leo litora venenatis lobortis litora. Commodo aliquam consectetur nibh ligula placerat massa nulla pretium magnis. Senectus montes felis etiam vulputate senectus inceptos dictumst."
+      },
+      {
+        "heranca": "Anão do sangue ancestral",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Habitasse luctus lectus dictum lacus; egestas tempus at pellentesque curae. Felis mus eros ut lacinia nulla amet a tristique. Sed tellus quis sollicitudin; odio ut habitasse erat. Cursus habitant lacus, felis dolor nisl dolor nostra. Nunc nibh finibus enim ornare; per imperdiet vestibulum dolor?"
+      },
+      {
+        "heranca": "Anão de sangue forte",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Laoreet ipsum id tincidunt ultricies vivamus eros. Sollicitudin finibus orci neque augue id dignissim. Aliquam felis amet felis netus elit turpis pharetra ipsum. Ipsum turpis fringilla pellentesque dignissim eleifend augue pretium nisl. Nam tristique nunc duis cursus ex malesuada diam bibendum convallis. Egestas vivamus dictum tortor tortor porttitor."
+      }
+    ]
+  },
+  {
+    "ancestralidade": "elfo",
+    "herancas": [
+      {
+        "heranca": "Elfo antigo",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Ex adipiscing felis quam orci ipsum nisl. Mi cursus primis volutpat leo erat semper cubilia. Magnis tincidunt malesuada auctor nostra sapien dolor. Curabitur ornare id scelerisque pellentesque integer ante consectetur etiam. Bibendum ante pellentesque tincidunt ipsum felis conubia maximus. Egestas senectus tempus; malesuada ultricies vel mollis scelerisque. Quisque platea sapien libero consequat; lacinia platea ut."
+      },
+      {
+        "heranca": "Elfo ártico",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aenean quam mollis convallis efficitur; rhoncus risus scelerisque arcu ullamcorper. Leo enim himenaeos sodales eleifend magna diam tortor tempor. Consectetur rhoncus ullamcorper mollis leo, viverra fusce curabitur nostra. Amet sagittis nulla auctor quisque porta nec arcu est. Venenatis congue lacinia hac sociosqu, augue placerat neque maecenas cras. Auctor tellus malesuada interdum ridiculus luctus. Eleifend lobortis iaculis augue blandit iaculis ante. Ex porttitor mi ullamcorper ad eros ad nibh donec."
+      },
+      {
+        "heranca": "Elfo das cavernas",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Est facilisi felis mi congue fringilla facilisi porta. Volutpat commodo non eleifend felis ligula; tortor consequat dolor eu. Ultricies fringilla natoque sagittis lobortis rutrum. Maximus scelerisque ut ullamcorper; ultrices inceptos elit! Fermentum molestie nec netus interdum nisi nec lacinia. Arcu turpis nisl aptent lacus purus. Ad facilisis vehicula justo convallis porttitor posuere velit."
+      }
+    ]
+  },
+  {
+    "ancestralidade": "humano",
+    "herancas": [
+      {
+        "heranca": "Humano perito",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Morbi justo semper sociosqu molestie, sodales libero blandit. Faucibus quisque montes finibus metus habitant sit natoque. Faucibus enim feugiat vehicula penatibus felis mauris. Congue facilisis tempus lectus molestie cras bibendum ullamcorper natoque. Potenti metus luctus semper auctor neque dictum tellus ultricies. Quisque netus ac ultrices; amet fringilla augue elementum fermentum. Vehicula pretium etiam hendrerit ex; sed molestie finibus pretium."
+      },
+      {
+        "heranca": "Humano versátil",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Viverra tincidunt dictumst luctus molestie; vitae pellentesque morbi. Tempor mauris hendrerit euismod quam per nec nascetur non. Tristique cursus consequat himenaeos facilisis euismod ac. Laoreet mollis orci malesuada interdum inceptos lacinia gravida. Duis facilisis eros eleifend blandit ad at nunc iaculis. Lacinia integer ad netus cubilia ipsum leo venenatis enim. Rhoncus class potenti justo habitant varius eros suscipit tempor nam. Egestas aptent condimentum litora mus ex sed condimentum. Nascetur cubilia eleifend ac morbi nec; dictumst pretium."
+      }
+    ]
+  }
+]

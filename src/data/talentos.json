@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "titulo": "Familiaridade com Armas Enânicas",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Nunc penatibus tortor tempus, sollicitudin cursus vestibulum. Fringilla urna et senectus vivamus porttitor curae eleifend ipsum. Tempor gravida himenaeos ex ultricies mi! Volutpat tincidunt ullamcorper eleifend leo pellentesque vitae platea felis. Est ultrices nostra sapien elit lobortis nibh condimentum. Rutrum consectetur adipiscing sollicitudin arcu semper. Ipsum conubia fames imperdiet maximus nec volutpat sem efficitur. Ac vulputate pharetra tristique curae, sit himenaeos. Semper sagittis sed eleifend ultrices conubia mi.",
+    "nivel": 1,
+    "tracos": [1]
+  },
+  {
+    "id": 2,
+    "titulo": "Desafiar a Escuridão",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce commodo penatibus pretium fusce congue orci finibus phasellus. Quisque fringilla non, sociosqu finibus per placerat ligula hac. Duis donec lacinia maximus elit dui eu tellus fringilla suspendisse. Ut egestas ornare nunc; integer euismod semper vivamus. Auctor cursus orci habitasse aliquam nibh leo. Inceptos tempor conubia placerat nullam nostra ut.",
+    "nivel": 5,
+    "tracos": [1]
+  },
+  {
+    "id": 3,
+    "titulo": "Robustez da Montanha",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultrices quisque erat, sodales diam nec inceptos maecenas. Egestas ut gravida dolor nostra velit potenti. Hendrerit in urna rutrum sed dictumst fermentum. Suspendisse est consequat, suscipit iaculis leo ante feugiat scelerisque. Magnis luctus magnis platea pulvinar proin; maecenas interdum. Sagittis libero proin suscipit tortor porttitor primis.",
+    "nivel": 9,
+    "tracos": [1]
+  },
+  {
+    "id": 4,
+    "titulo": "Saber Élfico",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisis potenti ac mattis mollis metus consequat! Erat quisque magna sociosqu; dictum class maximus. Praesent sollicitudin fermentum dis tempus semper fames molestie? Etiam suscipit suspendisse etiam ac vehicula sociosqu. Montes quis praesent tincidunt risus risus est suscipit. Dolor nostra aenean aliquet aenean mus. Proin orci quis ultrices habitant pulvinar scelerisque porta.",
+    "nivel": 1,
+    "tracos": [2]
+  },
+  {
+    "id": 5,
+    "titulo": "Ferro Desimpedido",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Primis luctus nibh auctor tristique rhoncus ullamcorper natoque. In purus aliquam erat erat convallis senectus cursus sociosqu. Vulputate mauris nostra ac suspendisse porttitor efficitur pellentesque lacus? Mollis sagittis aenean torquent tempor feugiat sit. Viverra ridiculus magnis purus sem mus arcu at. Integer magna dis diam, justo fusce luctus nulla primis.",
+    "nivel": 1,
+    "tracos": [1]
+  },
+  {
+    "id": 6,
+    "titulo": "Experiência Marcial",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Sodales vestibulum suscipit eros potenti a ad vehicula risus. Suspendisse lectus maecenas posuere magnis lacus fames aliquam pulvinar mauris. Cursus torquent dictumst mauris molestie gravida nunc montes. Purus class pharetra nisi venenatis gravida nec litora condimentum nullam. Nostra etiam etiam convallis malesuada ex pulvinar. Scelerisque non justo enim varius nunc dictumst ad convallis. Ut porta aenean duis netus quisque quis sem. Ornare morbi sit congue augue viverra tempus. Sem suscipit vel; tristique gravida dolor finibus eget ultricies.",
+    "nivel": 5,
+    "tracos": [2]
+  },
+  {
+    "id": 7,
+    "titulo": "Longevidade de Especialista",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Maximus sociosqu integer lacus ultrices dui aenean torquent varius. Netus elit iaculis id praesent pulvinar sociosqu. Inceptos nostra scelerisque purus imperdiet sociosqu malesuada; non pellentesque imperdiet. Curae amet senectus ante himenaeos montes. Sagittis felis massa donec ipsum odio orci rhoncus.",
+    "nivel": 9,
+    "tracos": [2]
+  },
+  {
+    "id": 8,
+    "titulo": "Natureza Cooperativa",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Nulla arcu orci interdum nulla malesuada dolor sociosqu. Tempor iaculis lectus; maecenas et nam blandit. Curae dapibus porttitor, condimentum dictumst maximus lobortis tristique. Venenatis pulvinar fusce inceptos porta aliquet. Ultricies dolor varius a volutpat cursus accumsan molestie semper. Amet duis donec imperdiet dignissim mi fusce.",
+    "nivel": 1,
+    "tracos": [3]
+  },
+  {
+    "id": 9,
+    "titulo": "Improvisador Astuto",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Suspendisse dis ultrices risus sit tellus; est habitasse potenti. Facilisis mus egestas ultricies faucibus platea mus, aenean ultrices. Sociosqu sapien magna imperdiet gravida; felis porta. Proin sed suspendisse vitae tortor efficitur ad enim. Malesuada non volutpat pulvinar pellentesque, lorem eleifend sed accumsan. Auctor mi nullam faucibus tempor leo ultrices torquent porta convallis.",
+    "nivel": 5,
+    "tracos": [3]
+  },
+  {
+    "id": 10,
+    "titulo": "Multitalentoso",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 9,
+    "tracos": [3]
+  }
+]
