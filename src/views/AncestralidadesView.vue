@@ -75,7 +75,6 @@ const ancestralidade: Ref<Ancestralidade | undefined> = ref(
 )
 
 const herancas: Ref<Heranca | undefined> = ref(findHerancas(route.query.id as string))
-console.log(ancestralidade.value?.idTracos)
 const talentos: Ref<Talento[]> = ref(
   collectTalentosByAnyTracos(ancestralidade.value?.idTracos as Tracos[]),
 )

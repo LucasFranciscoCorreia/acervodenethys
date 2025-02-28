@@ -30,14 +30,9 @@ export const findRoute = (path: string): RouterLinkProp | undefined => {
   activeRoute = links.find((link: RouterLinkProp) =>
     link.sublinks?.find((sublink: RouterLinkProp) => sublink.href === path),
   )
-  if (activeRoute) return activeRoute
-  for (const link of links) {
-    if (link.sublinks) {
-      const sublink = link.sublinks.find((sublink) => path.startsWith(sublink.href))
-      if (sublink) return sublink
-    }
-  }
-  return activeRoute
+  if (!activeRoute) return undefined
+  if (!activeRoute.sublinks || activeRoute.sublinks.length == 0) return activeRoute
+  return activeRoute.sublinks.find((link) => link.href === path)
 }
 
 export const findAncestralidade = (ancestralidade: string): Ancestralidade | undefined => {
@@ -104,11 +99,6 @@ export const collectTalentosByName = computed((): Talento[] => {
 
 export const collectTalentosByAnyTracos = (tracos?: Tracos[]): Talento[] => {
   if (!tracos || tracos.length === 0) return []
-  console.log('tracos', tracos)
-  console.log(
-    'talentos',
-    talentos.filter((el) => tracos.some((traco) => el.tracos.includes(traco))),
-  )
   return talentos
     .filter((el) => tracos.some((traco) => el.tracos.includes(traco)))
     .sort((a, b) => a.nivel - b.nivel || a.titulo.localeCompare(b.titulo)) as Talento[]

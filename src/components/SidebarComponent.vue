@@ -28,7 +28,7 @@
           <RouterLink
             :to="sublink.href"
             class="nav-link"
-            :class="{ active: isActive(sublink) }"
+            :class="{ active: isSublinkActive(sublink) }"
             @click="setActive(sublink)"
           >
             {{ sublink.title }}
@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, type Ref } from 'vue'
+import { onMounted, ref, watch, type Ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import links from '@/data/links.json'
 import type RouterLinkProp from '@/interfaces/RouterLinkProp'
@@ -65,11 +65,18 @@ const setActive = (link: RouterLinkProp) => {
 }
 
 const isActive = (link?: RouterLinkProp): boolean => {
-  if (link == undefined) return false
+  if (link == undefined || !activeLink.value) return false
   return (
-    activeLink.value?.title === link.title ||
-    (link?.sublinks?.some((sub) => isActive(sub)) ?? false)
+    (activeLink.value.title === link.title ||
+      link.sublinks?.some((sub) => sub.title === (activeLink.value?.title ?? undefined))) ??
+    false
   )
+}
+
+const isSublinkActive = (link?: RouterLinkProp): boolean => {
+  if (link == undefined || !activeLink.value) return false
+  //console.log(link.title, activeLink.value.title, activeLink.value.title === link.title)
+  return activeLink.value.title === link.title
 }
 
 const toggleSublinks = (link: RouterLinkProp) => {
@@ -79,6 +86,10 @@ const toggleSublinks = (link: RouterLinkProp) => {
     activeLink.value = link
   }
 }
+
+onMounted(() => {
+  activeLink.value = findRoute(route.path)
+})
 </script>
 
 <style scoped>
