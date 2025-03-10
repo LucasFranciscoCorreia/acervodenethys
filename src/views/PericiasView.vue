@@ -4,7 +4,7 @@
       <div v-for="pericia in collectPericiasByName" :key="pericia.pericia">
         <CardComponent
           :link-to="'pericias?id=' + pericia.href"
-          :title="pericia.titulo"
+          :title="pericia.pericia"
           :descricao="pericia.descricao"
         />
       </div>
@@ -12,7 +12,7 @@
   </div>
   <div v-else>
     <div>
-      <h1>{{ pericia.titulo }}</h1>
+      <h1>{{ pericia.pericia }}</h1>
       <p><span v-html="pericia.explicacao"></span></p>
     </div>
   </div>

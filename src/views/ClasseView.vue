@@ -4,7 +4,7 @@
       <div v-for="classe in collectClassesByName" :key="classe.classe">
         <CardComponent
           :link-to="'classes?id=' + classe.href"
-          :title="classe.titulo"
+          :title="classe.classe"
           :descricao="classe.descricao"
         />
       </div>
@@ -12,7 +12,7 @@
   </div>
   <div v-else>
     <div>
-      <h1>{{ classe.titulo }}</h1>
+      <h1>{{ classe.classe }}</h1>
       <p><span v-html="classe.explicacao"></span></p>
     </div>
   </div>

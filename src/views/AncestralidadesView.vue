@@ -7,7 +7,7 @@
       >
         <CardComponent
           :link-to="'/ancestralidades?id=' + ancestralidade.href"
-          :title="ancestralidade.titulo"
+          :title="ancestralidade.ancestralidade"
           :descricao="ancestralidade.descricao"
         />
       </div>
@@ -15,11 +15,11 @@
   </div>
   <div v-else>
     <div>
-      <h1>{{ ancestralidade.titulo }}</h1>
+      <h1>{{ ancestralidade.ancestralidade }}</h1>
       <p><span v-html="ancestralidade.explicacao"></span></p>
     </div>
     <div>
-      <h1>Heranças de {{ ancestralidade.titulo }}</h1>
+      <h1>Heranças de {{ ancestralidade.ancestralidade }}</h1>
       <div v-for="heranca in herancas?.herancas" :key="heranca.heranca">
         <h3>
           {{ heranca.heranca }}
@@ -28,33 +28,14 @@
       </div>
     </div>
     <div>
-      <h1>Talentos de {{ ancestralidade.titulo }}</h1>
-      <div style="margin-right: 3em">
-        <table>
-          <thead>
-            <tr>
-              <th>Título</th>
-              <th>Nível</th>
-              <th>Descrição</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="talento in talentos" :key="talento.id">
-              <td>
-                <RouterLink :to="'talentos?id=' + talento.id">{{ talento.titulo }}</RouterLink>
-              </td>
-              <td>{{ talento.nivel }}</td>
-              <td>{{ talento.descricao }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <TableComponenet title="Talentos" :columns="columns" :content="talentos" to="/talentos" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import CardComponent from '@/components/CardComponent.vue'
+import TableComponenet from '@/components/TableComponenet.vue'
 import {
   collectAncestralidadesByName,
   collectTalentosByAnyTracos,
@@ -94,6 +75,12 @@ watch(
   },
   { immediate: true },
 )
+
+const columns = ref([
+  { title: 'Título', key: 'titulo' },
+  { title: 'Nível', key: 'nivel' },
+  { title: 'Descrição', key: 'descricao' },
+])
 </script>
 
 <style scoped>
@@ -103,21 +90,5 @@ watch(
   flex-wrap: wrap;
   gap: 1em; /* Adjust the gap between cards as needed */
   margin-top: 1em;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-right: 1em;
-}
-
-th,
-td {
-  padding: 0.5em; /* Add padding to create margin effect */
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #f4f4f4;
 }
 </style>

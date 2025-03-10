@@ -4,7 +4,7 @@
       <div v-for="biografia in collectBiografiasByName" :key="biografia.biografia">
         <CardComponent
           :link-to="'biografias?id=' + biografia.href"
-          :title="biografia.titulo"
+          :title="biografia.biografia"
           :descricao="biografia.descricao"
         />
       </div>
@@ -12,7 +12,7 @@
   </div>
   <div v-else>
     <div>
-      <h1>{{ biografia.titulo }}</h1>
+      <h1>{{ biografia.biografia }}</h1>
       <p><span v-html="biografia.explicacao"></span></p>
     </div>
   </div>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "arma": "Espada Longa",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+    "preco": 100,
+    "dadoDano": 8,
+    "tipoDano": "Cortante",
+    "volume": 1,
+    "maos": 0,
+    "grupo": "Espada",
+    "tracos": []
+  },
+  {
+    "id": 2,
+    "arma": "Adaga",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Felis tellus risus elit tortor dui cubilia aenean.",
+    "preco": 20,
+    "dadoDano": 4,
+    "tipoDano": "Perfurante",
+    "volume": 0.1,
+    "maos": 0,
+    "grupo": "Faca",
+    "tracos": []
+  },
+  {
+    "id": 3,
+    "arma": "Machado Longo",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Amet quisque eleifend lacinia sem natoque vivamus iaculis; conubia faucibus.",
+    "preco": 200,
+    "dadoDano": 12,
+    "tipoDano": "Cortante",
+    "volume": 2,
+    "maos": 2,
+    "grupo": "Machado",
+    "tracos": []
+  }
+]

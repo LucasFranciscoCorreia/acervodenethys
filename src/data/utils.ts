@@ -9,7 +9,7 @@ import type Talento from '@/interfaces/Talento'
 import type { Tracos } from '@/enums/tracos'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
 
-import { computed } from 'vue'
+import { computed, h } from 'vue'
 
 import links from '@/data/links.json'
 import ancestralidades from '@/data/ancestralidades.json'
@@ -20,6 +20,8 @@ import pericias from '@/data/pericias.json'
 import herancas from '@/data/herancas.json'
 import talentos from '@/data/talentos.json'
 import tracosDescricao from '@/data/tracos.json'
+import armas from '@/data/armas.json'
+import type Arma from '@/interfaces/Arma'
 
 export const findRoute = (path: string): RouterLinkProp | undefined => {
   if (path === '/') return undefined
@@ -35,26 +37,29 @@ export const findRoute = (path: string): RouterLinkProp | undefined => {
   return activeRoute.sublinks.find((link) => link.href === path)
 }
 
-export const findAncestralidade = (ancestralidade: string): Ancestralidade | undefined => {
-  return ancestralidades.find(
-    (a) => a.ancestralidade === ancestralidade,
-  ) as unknown as Ancestralidade
+export const findAncestralidade = (href?: string): Ancestralidade | undefined => {
+  if (href == undefined) return undefined
+  return ancestralidades.find((a) => a.href === href) as unknown as Ancestralidade
 }
 
-export const findBiografia = (biografia: string): Biografia | undefined => {
-  return biografias.find((a) => a.biografia === biografia) as unknown as Biografia
+export const findBiografia = (href?: string): Biografia | undefined => {
+  if (href == undefined) return undefined
+  return biografias.find((a) => a.href === href) as unknown as Biografia
 }
 
-export const findClasse = (classe: string): Classe | undefined => {
-  return classes.find((a) => a.classe === classe) as Classe | undefined
+export const findClasse = (href?: string): Classe | undefined => {
+  if (href == undefined) return undefined
+  return classes.find((a) => a.href === href) as Classe | undefined
 }
 
-export const findArquetipo = (arquetipo: string): Arquetipo | undefined => {
-  return arquetipos.find((a) => a.arquetipo === arquetipo) as Arquetipo | undefined
+export const findArquetipo = (href?: string): Arquetipo | undefined => {
+  if (href == undefined) return undefined
+  return arquetipos.find((a) => a.href === href) as Arquetipo | undefined
 }
 
-export const findPericia = (arquetipo: string): Pericia | undefined => {
-  return pericias.find((a) => a.pericia === arquetipo) as Pericia | undefined
+export const findPericia = (href?: string): Pericia | undefined => {
+  if (href == undefined) return undefined
+  return pericias.find((a) => a.href === href) as Pericia | undefined
 }
 
 export const findHerancas = (ancestralidade: string): Heranca | undefined => {
@@ -71,26 +76,31 @@ export const findTracoDescricao = (id?: number): TracosDescricao | undefined => 
   return tracosDescricao.find((a) => a.id == id) as TracosDescricao | undefined
 }
 
+export const findArma = (id?: number): Arma | undefined => {
+  if (id === undefined) return undefined
+  return armas.find((a) => a.id === id) as unknown as Arma | undefined
+}
+
 export const collectAncestralidadesByName = computed((): Ancestralidade[] => {
   return ancestralidades.sort((a, b) =>
-    a.titulo.localeCompare(b.titulo),
+    a.ancestralidade.localeCompare(b.ancestralidade),
   ) as unknown as Ancestralidade[]
 })
 
 export const collectBiografiasByName = computed((): Biografia[] => {
-  return biografias.sort((a, b) => a.titulo.localeCompare(b.titulo))
+  return biografias.sort((a, b) => a.biografia.localeCompare(b.biografia))
 })
 
 export const collectClassesByName = computed((): Classe[] => {
-  return classes.sort((a, b) => a.titulo.localeCompare(b.titulo))
+  return classes.sort((a, b) => a.classe.localeCompare(b.classe))
 })
 
 export const collectArquetiposByName = computed((): Arquetipo[] => {
-  return arquetipos.sort((a, b) => a.titulo.localeCompare(b.titulo))
+  return arquetipos.sort((a, b) => a.arquetipo.localeCompare(b.arquetipo))
 })
 
 export const collectPericiasByName = computed((): Pericia[] => {
-  return pericias.sort((a, b) => a.titulo.localeCompare(b.titulo))
+  return pericias.sort((a, b) => a.pericia.localeCompare(b.pericia))
 })
 
 export const collectTalentosByName = computed((): Talento[] => {

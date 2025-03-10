@@ -4,7 +4,7 @@
       <div v-for="arquetipo in collectArquetiposByName" :key="arquetipo.arquetipo">
         <CardComponent
           :link-to="'arquetipos?id=' + arquetipo.href"
-          :title="arquetipo.titulo"
+          :title="arquetipo.arquetipo"
           :descricao="arquetipo.descricao"
         />
       </div>
@@ -12,7 +12,7 @@
   </div>
   <div v-else>
     <div>
-      <h1>{{ arquetipo.titulo }}</h1>
+      <h1>{{ arquetipo.arquetipo }}</h1>
       <p><span v-html="arquetipo.explicacao"></span></p>
     </div>
   </div>
@@ -29,6 +29,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const arquetipo: Ref<Arquetipo | undefined> = ref(findArquetipo(route.query.id as string))
+console.log(route.query.id, arquetipo.value)
 
 watch(
   () => route.query.id,
@@ -43,6 +44,7 @@ watch(
   { immediate: true },
 )
 </script>
+
 <style scoped>
 .card-row {
   display: flex;
