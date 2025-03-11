@@ -9,7 +9,7 @@
     "volume": 1,
     "maos": 0,
     "grupo": "Espada",
-    "tracos": []
+    "tracos": [4, 5, 6, 7]
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "volume": 0.1,
     "maos": 0,
     "grupo": "Faca",
-    "tracos": []
+    "tracos": [8]
   },
   {
     "id": 3,
@@ -33,6 +33,6 @@
     "volume": 2,
     "maos": 2,
     "grupo": "Machado",
-    "tracos": []
+    "tracos": [9]
   }
 ]

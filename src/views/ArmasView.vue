@@ -1,6 +1,6 @@
 <template>
   <div v-if="!arma">
-    <TableComponenet title="Armas" :columns="columns" :content="armas" to="/armas" />
+    <TableComponenet title="Armas" :columns="columns" :content="armas as Arma[]" to="/armas" />
   </div>
   <div v-else>A</div>
 </template>

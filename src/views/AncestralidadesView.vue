@@ -28,7 +28,7 @@
       </div>
     </div>
     <div>
-      <TableComponenet title="Talentos" :columns="columns" :content="talentos" to="/talentos" />
+      <TableComponenet title="Talentos" :columns="columns" :content="talentos as Talento[]" to="/talentos" />
     </div>
   </div>
 </template>
