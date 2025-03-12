@@ -1,8 +1,16 @@
 <template>
-  <div v-if="!arma">
+  <div v-if="!armadura">
     <TableComponenet title="Armaduras" :columns="columns" :content="armaduras as Armadura[]" to="/armaduras" />
   </div>
-  <div v-else>A</div>
+  <div v-else>
+    <DescricaoComponent
+      :title="armadura?.armadura"
+      tipo="Item"
+      :nivel="0"
+      :tracos="armadura.tracos"
+      :descricao="armadura.descricao"
+    />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -13,10 +21,11 @@ import { useRoute } from 'vue-router'
 import armaduras from '@/data/armaduras.json'
 import TableComponenet from '@/components/TableComponenet.vue'
 import type Armadura from '@/interfaces/Armadura'
+import DescricaoComponent from '@/components/DescricaoComponent.vue'
 
 const route = useRoute()
 
-const arma: Ref<Armadura | undefined> = ref(findArmadura(Number(route.query.id)))
+const armadura: Ref<Armadura | undefined> = ref(findArmadura(Number(route.query.id)))
 
 const columns: Ref<Column[]> = ref([
   {
@@ -62,9 +71,9 @@ watch(
   (newArmadura) => {
     const armor = findArmadura(Number(newArmadura))
     if (!armor) {
-      arma.value = undefined
+      armadura.value = undefined
     } else {
-      arma.value = armor
+      armadura.value = armor
     }
   },
   { immediate: true },

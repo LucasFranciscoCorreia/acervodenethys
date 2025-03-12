@@ -2,7 +2,15 @@
   <div v-if="!arma">
     <TableComponenet title="Armas" :columns="columns" :content="armas as Arma[]" to="/armas" />
   </div>
-  <div v-else>A</div>
+  <div v-else>
+    <DescricaoComponent
+      :title="arma.arma"
+      tipo="Item"
+      :nivel="0"
+      :tracos="arma.tracos"
+      :descricao="arma.descricao"
+    />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -13,6 +21,7 @@ import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import armas from '@/data/armas.json'
 import TableComponenet from '@/components/TableComponenet.vue'
+import DescricaoComponent from '@/components/DescricaoComponent.vue'
 
 const route = useRoute()
 
