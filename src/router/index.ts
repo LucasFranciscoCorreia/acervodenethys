@@ -7,6 +7,7 @@ import ArquetipoView from '@/views/ArquetipoView.vue'
 import PericiasView from '@/views/PericiasView.vue'
 import TalentosView from '@/views/TalentosView.vue'
 import ArmasView from '@/views/ArmasView.vue'
+import ArmadurasView from '@/views/ArmadurasView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/armas',
       name: 'armas',
       component: ArmasView,
+    },
+    {
+      path: '/armaduras',
+      name: 'armaduras',
+      component: ArmadurasView,
     },
     /*
     {

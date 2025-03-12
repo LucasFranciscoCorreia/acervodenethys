@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "armadura": "Roupa de Explorador",
+      "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+      "preco": 10,
+      "bonusCA": 0,
+      "limiteDes": 5,
+      "penTeste": 0,
+      "penVelocidade": 0,
+      "volume": 0.1,
+      "grupo": "Roupa",
+      "tracos": [10]
+    },
+    {
+      "id": 2,
+      "armadura": "Camisão de malha",
+      "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Felis tellus risus elit tortor dui cubilia aenean.",
+      "preco": 500,
+      "bonusCA": 2,
+      "limiteDes": 3,
+      "penTeste": -1,
+      "penVelocidade": -1.5,
+      "volume": 1,
+      "grupo": "Malha",
+      "tracos": [11, 12]
+    },
+    {
+      "id": 3,
+      "armadura": "Placa peitoral",
+      "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Amet quisque eleifend lacinia sem natoque vivamus iaculis; conubia faucibus.",
+      "preco": 800,
+      "bonusCA": 4,
+      "limiteDes": 1,
+      "penTeste": -2,
+      "penVelocidade": -3,
+      "volume": 2,
+      "grupo": "Placas",
+      "tracos": []
+    }
+  ]
+  

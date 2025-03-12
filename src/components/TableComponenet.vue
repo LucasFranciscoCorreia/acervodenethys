@@ -14,11 +14,14 @@
           </td>
           <td v-for="column in columns?.slice(1)" :key="column.key">
             <span v-if="column.key !== 'tracos'" v-html="element[column.key]"></span>
-            <span v-else>
-              <RouterLink v-for="(traco) in element.tracos" :key="traco.id" :to="'/tracos?id=' + traco.id">
-                {{ traco.titulo }}<span>, </span>
+            <div v-else style="display: inline; white-space: nowrap;">
+              <span v-for="(traco, index) in element.tracos" :key="traco.id" style="white-space: nowrap;">
+              <RouterLink :to="'/tracos?id=' + traco.id">
+                {{ traco.titulo }}
               </RouterLink>
-            </span>
+              <span v-if="index < element.tracos.length-1">, </span>
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -29,8 +32,8 @@
 <script setup lang="ts">
 import { findTracoDescricao } from '@/data/utils'
 import type { Tracos } from '@/enums/tracos'
-import type Ancestralidade from '@/interfaces/Ancestralidade'
 import type Arma from '@/interfaces/Arma'
+import type Armadura from '@/interfaces/Armadura'
 import type Column from '@/interfaces/Column'
 import type Prop from '@/interfaces/Prop'
 import type Talento from '@/interfaces/Talento'
@@ -47,7 +50,7 @@ const props = defineProps({
     required: true
   },
   content: {
-    type: Array<Talento | Arma>,
+    type: Array<Talento | Arma | Armadura>,
     required: true
   },
   to: {
@@ -58,19 +61,19 @@ const props = defineProps({
 
 const tableContent: Ref<Array<Prop>> = ref([])
 
-const tableTitle = (el: Talento | Arma | Ancestralidade) => {
+const tableTitle = (el: Talento | Arma | Armadura) => {
   if ('titulo' in el) {
     return el.titulo
   } else if ('arma' in el) {
     return el.arma
   } else {
-    return el.ancestralidade
+    return el.armadura
   }
 }
 
 onMounted(() => {
   const content: Array<Prop> =
-    props.content?.map((el: Talento | Arma) => {
+    props.content?.map((el: Talento | Arma | Armadura) => {
       const row: Prop = {
         id: el.id,
         titulo: tableTitle(el),

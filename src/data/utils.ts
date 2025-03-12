@@ -9,7 +9,7 @@ import type Talento from '@/interfaces/Talento'
 import type { Tracos } from '@/enums/tracos'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
 
-import { computed, h } from 'vue'
+import { computed } from 'vue'
 
 import links from '@/data/links.json'
 import ancestralidades from '@/data/ancestralidades.json'
@@ -21,7 +21,9 @@ import herancas from '@/data/herancas.json'
 import talentos from '@/data/talentos.json'
 import tracosDescricao from '@/data/tracos.json'
 import armas from '@/data/armas.json'
+import armaduras from '@/data/armaduras.json'
 import type Arma from '@/interfaces/Arma'
+import type Armadura from '@/interfaces/Armadura'
 
 export const findRoute = (path: string): RouterLinkProp | undefined => {
   if (path === '/') return undefined
@@ -79,6 +81,11 @@ export const findTracoDescricao = (id?: number): TracosDescricao | undefined => 
 export const findArma = (id?: number): Arma | undefined => {
   if (id === undefined) return undefined
   return armas.find((a) => a.id === id) as unknown as Arma | undefined
+}
+
+export const findArmadura = (id?: number): Armadura | undefined => {
+  if (id === undefined) return undefined
+  return armaduras.find((a) => a.id === id) as unknown as Armadura | undefined
 }
 
 export const collectAncestralidadesByName = computed((): Ancestralidade[] => {
