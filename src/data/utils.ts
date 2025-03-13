@@ -22,8 +22,10 @@ import talentos from '@/data/talentos.json'
 import tracosDescricao from '@/data/tracos.json'
 import armas from '@/data/armas.json'
 import armaduras from '@/data/armaduras.json'
+import escudos from '@/data/escudos.json'
 import type Arma from '@/interfaces/Arma'
 import type Armadura from '@/interfaces/Armadura'
+import type Escudo from '@/interfaces/Escudo'
 
 export const findRoute = (path: string): RouterLinkProp | undefined => {
   if (path === '/') return undefined
@@ -86,6 +88,11 @@ export const findArma = (id?: number): Arma | undefined => {
 export const findArmadura = (id?: number): Armadura | undefined => {
   if (id === undefined) return undefined
   return armaduras.find((a) => a.id === id) as unknown as Armadura | undefined
+}
+
+export const findEscudo = (id?: number): Escudo | undefined => {
+  if (id === undefined) return undefined
+  return escudos.find((a) => a.id === id) as unknown as Escudo | undefined
 }
 
 export const collectAncestralidadesByName = computed((): Ancestralidade[] => {

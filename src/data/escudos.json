@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "escudo": "Broquel",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+    "preco": 100,
+    "bonusCA": 1,
+    "penVelocidade": 0,
+    "volume": 0.1,
+    "dureza": 3,
+    "PV": 6
+  },
+  {
+    "id": 2,
+    "escudo": "Escudo de madeira",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Felis tellus risus elit tortor dui cubilia aenean.",
+    "preco": 100,
+    "bonusCA": 2,
+    "penVelocidade": 0,
+    "volume": 1,
+    "dureza": 3,
+    "PV": 12
+  },
+  {
+    "id": 3,
+    "escudo": "Escudo de aço",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Amet quisque eleifend lacinia sem natoque vivamus iaculis; conubia faucibus.",
+    "preco": 200,
+    "bonusCA": 2,
+    "penVelocidade": 0,
+    "volume": 1,
+    "dureza": 5,
+    "PV": 20
+  }
+]

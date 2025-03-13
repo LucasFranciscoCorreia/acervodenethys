@@ -35,6 +35,7 @@ import type { Tracos } from '@/enums/tracos'
 import type Arma from '@/interfaces/Arma'
 import type Armadura from '@/interfaces/Armadura'
 import type Column from '@/interfaces/Column'
+import type Escudo from '@/interfaces/Escudo'
 import type Prop from '@/interfaces/Prop'
 import type Talento from '@/interfaces/Talento'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
@@ -50,7 +51,7 @@ const props = defineProps({
     required: true
   },
   content: {
-    type: Array<Talento | Arma | Armadura>,
+    type: Array<Talento | Arma | Armadura | Escudo>,
     required: true
   },
   to: {
@@ -61,11 +62,13 @@ const props = defineProps({
 
 const tableContent: Ref<Array<Prop>> = ref([])
 
-const tableTitle = (el: Talento | Arma | Armadura) => {
+const tableTitle = (el: Talento | Arma | Armadura | Escudo) => {
   if ('titulo' in el) {
     return el.titulo
   } else if ('arma' in el) {
     return el.arma
+  } else if ('escudo' in el) {
+    return el.escudo
   } else {
     return el.armadura
   }
@@ -73,7 +76,7 @@ const tableTitle = (el: Talento | Arma | Armadura) => {
 
 onMounted(() => {
   const content: Array<Prop> =
-    props.content?.map((el: Talento | Arma | Armadura) => {
+    props.content?.map((el: Talento | Arma | Armadura | Escudo) => {
       const row: Prop = {
         id: el.id,
         titulo: tableTitle(el),
