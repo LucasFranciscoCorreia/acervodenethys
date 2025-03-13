@@ -10,6 +10,7 @@ import ArmasView from '@/views/ArmasView.vue'
 import ArmadurasView from '@/views/ArmadurasView.vue'
 import EscudosView from '@/views/EscudosView.vue'
 import EquipamentosAventuraView from '@/views/EquipamentosAventuraView.vue'
+import TracosView from '@/views/TracosView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -69,6 +70,11 @@ const router = createRouter({
       name: 'equipamentosAventura',
       component: EquipamentosAventuraView,
     },
+    {
+      path: '/tracos',
+      name: 'traços',
+      component: TracosView,
+    }
     /*
     {
       path: '/about',

@@ -40,7 +40,7 @@ import type Escudo from '@/interfaces/Escudo'
 import type Prop from '@/interfaces/Prop'
 import type Talento from '@/interfaces/Talento'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
-import { onMounted, ref, type Ref } from 'vue'
+import { ref, watch, type Ref } from 'vue'
 
 const props = defineProps({
   title: {
@@ -52,7 +52,7 @@ const props = defineProps({
     required: true
   },
   content: {
-    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura>,
+    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento>,
     required: true
   },
   to: {
@@ -63,7 +63,7 @@ const props = defineProps({
 
 const tableContent: Ref<Array<Prop>> = ref([])
 
-const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura) => {
+const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento) => {
   if ('titulo' in el) {
     return el.titulo
   } else if ('arma' in el) {
@@ -77,9 +77,9 @@ const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura
   }
 }
 
-onMounted(() => {
+const updateTableContent = () => {
   const content: Array<Prop> =
-    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura) => {
+    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento) => {
       const row: Prop = {
         id: el.id,
         titulo: tableTitle(el),
@@ -113,7 +113,19 @@ onMounted(() => {
       return row
     }) ?? ([] as Prop[])
   tableContent.value = content
-})
+};
+
+watch(
+  () => props.content,
+  (newContent) => {
+    console.log(newContent)
+    updateTableContent()
+  },
+  { immediate: true }
+);
+
+updateTableContent()
+
 </script>
 
 <style scoped>

@@ -35,7 +35,7 @@
 
 <script lang="ts" setup>
 import CardComponent from '@/components/CardComponent.vue'
-import TableComponenet from '@/components/TableComponenet.vue'
+import TableComponenet from '@/components/TableComponent.vue'
 import {
   collectAncestralidadesByName,
   collectTalentosByAnyTracos,

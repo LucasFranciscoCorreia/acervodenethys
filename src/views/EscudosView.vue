@@ -19,7 +19,7 @@ import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import escudos from '@/data/escudos.json'
-import TableComponenet from '@/components/TableComponenet.vue'
+import TableComponenet from '@/components/TableComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import type Escudo from '@/interfaces/Escudo'
 

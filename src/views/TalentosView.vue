@@ -1,14 +1,6 @@
 <template>
   <div v-if="!talento">
-    <div class="card-row">
-      <div v-for="talento in collectTalentosByName" :key="talento.id">
-        <CardComponent
-          :link-to="'/talentos?id=' + talento.id"
-          :title="talento.titulo"
-          :descricao="talento.descricao"
-        />
-      </div>
-    </div>
+    <TableComponent title="Talentos" :columns="columns" :content="talentos as Talento[]" to="/talentos" />
   </div>
   <div v-else>
     <DescricaoComponent
@@ -22,16 +14,48 @@
 </template>
 
 <script lang="ts" setup>
-import CardComponent from '@/components/CardComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
-import { collectTalentosByName, findTalento } from '@/data/utils'
+import TableComponent from '@/components/TableComponent.vue'
+import { collectTalentosByName, collectTalentosGerais, collectTalentosPericia, findTalento } from '@/data/utils'
+import type Column from '@/interfaces/Column'
 import type Talento from '@/interfaces/Talento'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
+const collectTalentosByCategoria = (categoria: string): Talento[] => {
+  switch(categoria){
+      case 'gerais':
+        return collectTalentosGerais.value
+        break;
+      case 'pericia':
+        return collectTalentosPericia.value
+        break;
+      default:
+        return collectTalentosByName.value
+    }
+}
+
+
+const talentos = ref(collectTalentosByCategoria(route.query.categoria as string))
+
 const talento: Ref<Talento | undefined> = ref(findTalento(route.query.id as unknown as number))
+
+const columns: Ref<Column[]> = ref([
+  {
+    title: 'Título',
+    key: 'titulo',
+  },
+  {
+    title: 'Nível',
+    key: 'nivel',
+  },
+  {
+    title: 'Tracos',
+    key: 'tracos',
+  },
+])
 
 watch(
   () => route.query.id,
@@ -45,30 +69,11 @@ watch(
   },
   { immediate: true },
 )
+
+watch(
+  () => route.query.categoria,
+  (newCategoria) => {
+    talentos.value = collectTalentosByCategoria(newCategoria as string)
+  },
+)
 </script>
-
-<style scoped>
-.card-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1em; /* Adjust the gap between cards as needed */
-  margin-top: 1em;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-right: 1em;
-}
-
-th,
-td {
-  padding: 0.5em; /* Add padding to create margin effect */
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #f4f4f4;
-}
-</style>

@@ -68,5 +68,47 @@
     "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
     "nivel": 9,
     "tracos": [3]
+  },
+  {
+    "id": 11,
+    "titulo": "Bloqueio com Escudo",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 1,
+    "tracos": [13]
+  },
+  {
+    "id": 12,
+    "titulo": "Duro de Matar",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 1,
+    "tracos": [13]
+  },
+  {
+    "id": 13,
+    "titulo": "Velocidade",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 1,
+    "tracos": [13]
+  },
+  {
+    "id": 14,
+    "titulo": "Certeza",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 1,
+    "tracos": [13, 14]
+  },
+  {
+    "id": 15,
+    "titulo": "Conhecimento Duvidoso",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 1,
+    "tracos": [13, 14]
+  },
+  {
+    "id": 16,
+    "titulo": "Reconhecer Magia",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+    "nivel": 1,
+    "tracos": [13, 14]
   }
 ]

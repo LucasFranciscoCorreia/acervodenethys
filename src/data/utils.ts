@@ -6,7 +6,7 @@ import type Arquetipo from '@/interfaces/Arquetipo'
 import type Pericia from '@/interfaces/Pericia'
 import type Heranca from '@/interfaces/Heranca'
 import type Talento from '@/interfaces/Talento'
-import type { Tracos } from '@/enums/tracos'
+import { Tracos } from '@/enums/tracos'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
 
 import { computed } from 'vue'
@@ -126,8 +126,15 @@ export const collectPericiasByName = computed((): Pericia[] => {
 
 export const collectTalentosByName = computed((): Talento[] => {
   return talentos.sort((a, b) => a.nivel - b.nivel || a.titulo.localeCompare(b.titulo)) as Talento[]
-})
+});
 
+export const collectTalentosGerais = computed((): Talento[] => {
+  return collectTalentosByName.value.filter((el: Talento) => el.tracos.includes(Tracos.GERAL)) as Talento[];
+});
+
+export const collectTalentosPericia = computed((): Talento[] => {
+  return collectTalentosByName.value.filter((el: Talento) => el.tracos.includes(Tracos.PERICIA)) as Talento[];
+});
 
 export const collectTalentosByAnyTracos = (tracos?: Tracos[]): Talento[] => {
   if (!tracos || tracos.length === 0) return []

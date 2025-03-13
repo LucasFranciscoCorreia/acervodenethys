@@ -17,7 +17,7 @@
 import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
-import TableComponenet from '@/components/TableComponenet.vue'
+import TableComponenet from '@/components/TableComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import equipamentos from '@/data/equipamentosAventura.json'
 import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'

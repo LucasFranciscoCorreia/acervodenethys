@@ -29,7 +29,6 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const arquetipo: Ref<Arquetipo | undefined> = ref(findArquetipo(route.query.id as string))
-console.log(route.query.id, arquetipo.value)
 
 watch(
   () => route.query.id,

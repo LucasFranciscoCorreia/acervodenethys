@@ -56,15 +56,15 @@
     "title": "Talentos",
     "sublinks": [
       {
-        "href": "#",
+        "href": "/talentos",
         "title": "Todos"
       },
       {
-        "href": "#",
+        "href": "/talentos?categoria=gerais",
         "title": "Gerais"
       },
       {
-        "href": "#",
+        "href": "/talentos?categoria=pericia",
         "title": "Perícia"
       }
     ]
@@ -90,7 +90,7 @@
         "title": "Condições"
       },
       {
-        "href": "#",
+        "href": "/tracos",
         "title": "Traços"
       },
       {

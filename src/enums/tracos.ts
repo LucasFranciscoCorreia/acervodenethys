@@ -7,5 +7,10 @@ export enum Tracos {
   ARREMESSO = 6,
   VERSATIL_CT = 7,
   VERSATIL_P = 8,
-  AMPLITUDE = 9
+  AMPLITUDE = 9,
+  CONFORTAVEL = 10,
+  BARULHENTA =11,
+  FLEXIVEL=12,
+  GERAL=13,
+  PERICIA=14
 }
