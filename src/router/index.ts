@@ -9,6 +9,7 @@ import TalentosView from '@/views/TalentosView.vue'
 import ArmasView from '@/views/ArmasView.vue'
 import ArmadurasView from '@/views/ArmadurasView.vue'
 import EscudosView from '@/views/EscudosView.vue'
+import EquipamentosAventuraView from '@/views/EquipamentosAventuraView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,8 +61,13 @@ const router = createRouter({
     },
     {
       path: '/escudos',
-      name: 'escuos',
+      name: 'escudos',
       component: EscudosView,
+    },
+    {
+      path: '/equipamentos',
+      name: 'equipamentosAventura',
+      component: EquipamentosAventuraView,
     },
     /*
     {

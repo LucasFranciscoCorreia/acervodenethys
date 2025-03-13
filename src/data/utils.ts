@@ -23,9 +23,11 @@ import tracosDescricao from '@/data/tracos.json'
 import armas from '@/data/armas.json'
 import armaduras from '@/data/armaduras.json'
 import escudos from '@/data/escudos.json'
+import equipamentos from '@/data/equipamentosAventura.json'
 import type Arma from '@/interfaces/Arma'
 import type Armadura from '@/interfaces/Armadura'
 import type Escudo from '@/interfaces/Escudo'
+import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'
 
 export const findRoute = (path: string): RouterLinkProp | undefined => {
   if (path === '/') return undefined
@@ -95,6 +97,11 @@ export const findEscudo = (id?: number): Escudo | undefined => {
   return escudos.find((a) => a.id === id) as unknown as Escudo | undefined
 }
 
+export const findEquipamentoAventura = (id?: number): EquipamentoAventura | undefined => {
+  if (id === undefined) return undefined
+  return equipamentos.find((a) => a.id === id) as unknown as EquipamentoAventura | undefined
+}
+
 export const collectAncestralidadesByName = computed((): Ancestralidade[] => {
   return ancestralidades.sort((a, b) =>
     a.ancestralidade.localeCompare(b.ancestralidade),
@@ -120,6 +127,7 @@ export const collectPericiasByName = computed((): Pericia[] => {
 export const collectTalentosByName = computed((): Talento[] => {
   return talentos.sort((a, b) => a.nivel - b.nivel || a.titulo.localeCompare(b.titulo)) as Talento[]
 })
+
 
 export const collectTalentosByAnyTracos = (tracos?: Tracos[]): Talento[] => {
   if (!tracos || tracos.length === 0) return []

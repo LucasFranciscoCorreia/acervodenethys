@@ -35,6 +35,7 @@ import type { Tracos } from '@/enums/tracos'
 import type Arma from '@/interfaces/Arma'
 import type Armadura from '@/interfaces/Armadura'
 import type Column from '@/interfaces/Column'
+import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'
 import type Escudo from '@/interfaces/Escudo'
 import type Prop from '@/interfaces/Prop'
 import type Talento from '@/interfaces/Talento'
@@ -51,7 +52,7 @@ const props = defineProps({
     required: true
   },
   content: {
-    type: Array<Talento | Arma | Armadura | Escudo>,
+    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura>,
     required: true
   },
   to: {
@@ -62,21 +63,23 @@ const props = defineProps({
 
 const tableContent: Ref<Array<Prop>> = ref([])
 
-const tableTitle = (el: Talento | Arma | Armadura | Escudo) => {
+const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura) => {
   if ('titulo' in el) {
     return el.titulo
   } else if ('arma' in el) {
     return el.arma
   } else if ('escudo' in el) {
     return el.escudo
-  } else {
+  } else if ('armadura' in el) {
     return el.armadura
+  } else{
+    return el.nome
   }
 }
 
 onMounted(() => {
   const content: Array<Prop> =
-    props.content?.map((el: Talento | Arma | Armadura | Escudo) => {
+    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura) => {
       const row: Prop = {
         id: el.id,
         titulo: tableTitle(el),
@@ -98,7 +101,10 @@ onMounted(() => {
           row['volume'] = el.volume === 0 ? '-' : (el.volume === 0.1 ? 'L' : el.volume);
         }
         if(col.key === 'maos' && 'maos' in el) {
-          row['maos'] = el.maos === 0 ? '1' : (el.maos === 1 ? '1+' : el.maos);
+          if('equipado' in el && el.equipado)
+            row['maos'] = '2 (1 se equipado)';
+          else
+            row['maos'] = el.maos === 0 ? '1' : (el.maos === 1 ? '1+' : el.maos);
         }
         if(col.key === 'tracos' && 'tracos' in el) {
           row['tracos'] = (el as Talento).tracos.map((traco: Tracos): TracosDescricao | undefined => findTracoDescricao(traco)).filter((traco: TracosDescricao | undefined) => traco);

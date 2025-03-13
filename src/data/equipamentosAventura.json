@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "nome": "Corda (15 metros)",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+        "preco": 50,
+        "volume": 0.1,
+        "maos": 2,
+        "nivel" : 0,
+        "equipado": false
+    },
+    {
+        "id": 2,
+        "nome": "Ferramentas de alquimista",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+        "preco": 300,
+        "volume": 1,
+        "maos": 2,
+        "nivel": 0,
+        "equipado": true
+    },
+    {
+        "id": 3,
+        "nome": "Ferramentas de curandeiro",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+        "preco": 500,
+        "volume": 1,
+        "maos": 2,
+        "nivel": 0,
+        "equipado": true
+    },
+    {
+        "id": 4,
+        "nome": "Kit de escalada",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+        "preco": 50,
+        "volume": 1,
+        "maos": 2,
+        "nivel": 0,
+        "equipado": true
+    },
+    {
+        "id": 5,
+        "nome": "Mochila",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar.",
+        "preco": 10,
+        "volume": 0,
+        "maos": 0,
+        "nivel": 0,
+        "equipado": false
+    }
+]
