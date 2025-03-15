@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "nome": "Golpear",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultricies urna malesuada natoque vitae adipiscing blandit dignissim. Pharetra lacus risus vehicula ullamcorper felis laoreet mus.",
+        "tracos": [15],
+        "requisitos": ["a"],
+        "efeitos": ["c"],
+        "acionamentos": [],
+        "tipo": 1,
+        "referencia": [1]
+
+    },
+    {
+        "id": 2,
+        "nome": "Interagir",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultricies urna malesuada natoque vitae adipiscing blandit dignissim. Pharetra lacus risus vehicula ullamcorper felis laoreet mus.",
+        "tracos": [16],
+        "requisitos": ["b"],
+        "efeitos": [],
+        "acionamentos": ["e"],
+        "tipo": 1,
+        "referencia": [1]
+    },
+    {
+        "id": 3,
+        "nome": "Andar",
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultricies urna malesuada natoque vitae adipiscing blandit dignissim. Pharetra lacus risus vehicula ullamcorper felis laoreet mus.",
+        "tracos": [17],
+        "requisitos": [],
+        "efeitos": ["d"],
+        "acionamentos": ["f"],
+        "tipo": 1,
+        "referencia": [1]
+    }
+]

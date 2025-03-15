@@ -1,52 +1,49 @@
 <template>
-  <div v-if="!traco">
+     <div v-if="!condicao">
     <table>
       <thead>
         <tr>
-          <th>Nome</th>
+          <th>Condição</th>
           <th>Descrição</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="traco in tracos" :key="traco.id">
-          <td><RouterLink :to="'/tracos?id='+traco.id">{{ traco.titulo }}</RouterLink></td>
-          <td>{{ traco.descricao }}</td>
+        <tr v-for="condicao in condicoes" :key="condicao.id">
+          <td><RouterLink :to="'/condicoes?id='+condicao.id">{{ condicao.condicao }}</RouterLink></td>
+          <td>{{ condicao.descricao }}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <DescricaoComponent v-else
-    :title="traco.titulo"
-    :tracos="[]"
-    :descricao="traco.descricao"
-    :sources="traco.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
-  />
+    :title="condicao.condicao"
+    :descricao="condicao.descricao"
+    />
 </template>
 
-<script lang="ts" setup>
-import { findReferencia, findTracoDescricao } from '@/data/utils';
-import type TracosDescricao from '@/interfaces/TracosDescricao';
+<script setup lang="ts">
+import condicoes from '@/data/condicoes.json';
+import type Condicao from '@/interfaces/Condicao';
 import { ref, watch, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
-import tracos from '@/data/tracos.json';
+import { findCondicao } from '@/data/utils';
 import DescricaoComponent from '@/components/DescricaoComponent.vue';
 
-const route = useRoute()
-
-const traco: Ref<TracosDescricao | undefined> = ref(findTracoDescricao(route.query?.id as unknown as number))
-
+const route = useRoute();
+const condicao: Ref<Condicao | undefined> = ref(findCondicao(Number(route.query.id)));
 watch(
   () => route.query.id,
-  (newTraco) => {
-    const trait = findTracoDescricao(newTraco as unknown as number)
-    if (!trait) {
-      traco.value = undefined
+  (newCondicao) => {
+    const condition = findCondicao(Number(newCondicao));
+    if (!condition) {
+      condicao.value = undefined
     } else {
-      traco.value = trait
+      condicao.value = condition
     }
   },
   { immediate: true },
 )
+
 </script>
 
 <style scoped>
@@ -58,7 +55,7 @@ table {
 
 th,
 td {
-  padding: 0.5em; /* Add padding to create margin effect */
+  padding: 0.5em;
   border: 1px solid #ddd;
 }
 

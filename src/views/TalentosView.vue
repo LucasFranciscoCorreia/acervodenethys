@@ -2,21 +2,20 @@
   <div v-if="!talento">
     <TableComponent title="Talentos" :columns="columns" :content="talentos as Talento[]" to="/talentos" />
   </div>
-  <div v-else>
-    <DescricaoComponent
-      :title="talento.titulo"
-      tipo="Talento"
-      :nivel="talento.nivel"
-      :tracos="talento.tracos"
-      :descricao="talento.descricao"
-    />
-  </div>
+  <DescricaoComponent v-else
+    :title="talento.titulo"
+    tipo="Talento"
+    :nivel="talento.nivel"
+    :tracos="talento.tracos"
+    :descricao="talento.descricao"
+    :sources="talento.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+  />
 </template>
 
 <script lang="ts" setup>
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import TableComponent from '@/components/TableComponent.vue'
-import { collectTalentosByName, collectTalentosGerais, collectTalentosPericia, findTalento } from '@/data/utils'
+import { collectTalentosByName, collectTalentosGerais, collectTalentosPericia, findReferencia, findTalento } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import type Talento from '@/interfaces/Talento'
 import { ref, watch, type Ref } from 'vue'

@@ -10,7 +10,8 @@
       "penVelocidade": 0,
       "volume": 0.1,
       "grupo": "Roupa",
-      "tracos": [10]
+      "tracos": [10],
+      "referencia": [1]
     },
     {
       "id": 2,
@@ -23,7 +24,8 @@
       "penVelocidade": -1.5,
       "volume": 1,
       "grupo": "Malha",
-      "tracos": [11, 12]
+      "tracos": [11, 12],
+      "referencia": [1]
     },
     {
       "id": 3,
@@ -36,7 +38,8 @@
       "penVelocidade": -3,
       "volume": 2,
       "grupo": "Placas",
-      "tracos": []
+      "tracos": [],
+      "referencia": [1]
     }
   ]
   

@@ -2,18 +2,18 @@
   <div class="p-4">
     <div class="bg-title text-uppercase px-3 py-2 d-flex justify-content-between">
       <span>{{ title }}</span>
-      <span>{{ tipo }} {{ nivel }}</span>
+      <span v-if="tipo != undefined && nivel != undefined">{{ tipo }} {{ nivel }}</span>
     </div>
     <div class="text-uppercase d-flex justify-content-left mt-2">
       <p class="trait" v-for="traco in descricaoTracos" :key="traco.id">{{ traco.titulo }}</p>
     </div>
-    <p class="text-sm">
-      <strong>Fonte:</strong> <span class="font-italic text-primary">SOURCE</span>
+    <p v-if="sources != undefined && sources.length > 0" class="text-sm">
+      <strong>Fonte:</strong> <span v-for="source in sources" class="font-italic text-primary" :key="source.id">{{source.titulo}}</span>
     </p>
     <hr />
-    <p>{{ descricao }}</p>
-    <div class="mt-2 bg-secondary text-white px-3 py-2 font-weight-bold rounded">Traços</div>
-    <table class="w-100">
+    <p v-if="descricao != undefined">{{ descricao }}</p>
+    <div v-if="tracos != undefined && tracos.length > 0" class="mt-2 bg-secondary text-white px-3 py-2 font-weight-bold rounded">Traços</div>
+    <table v-if="tracos != undefined && tracos.length > 0" class="w-100">
       <tbody>
         <tr v-for="descricao in descricaoTracos" :key="descricao.id">
           <td class="fixed-width">{{ descricao.titulo }}</td>
@@ -28,18 +28,35 @@
 import { findTracoDescricao } from '@/data/utils'
 import type { Tracos } from '@/enums/tracos'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
+import type Referencia from '@/interfaces/Referencia'
 
-const props = defineProps<{
-  title: string
-  tracos: Tracos[]
-  tipo: string
-  nivel: number
-  descricao: string
-}>()
+const props = defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  tracos: {
+    type: Array<Tracos>,
+  },
+  tipo: {
+    type: String
+  },
+  nivel: {
+    type: Number
+  },
+  descricao: {
+    type: String,
+    required: true,
+
+  },
+  sources: {
+    type: Array<Referencia>
+  }
+})
 
 const descricaoTracos: TracosDescricao[] = props.tracos
-  .map((el) => findTracoDescricao(el))
-  .filter((el) => el != undefined)
+  ?.map((el) => findTracoDescricao(el))
+  .filter((el) => el != undefined) ?? [] as TracosDescricao[]
 </script>
 <style scoped>
 div.bg-title {

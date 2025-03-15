@@ -1,3 +1,6 @@
+import type { ReferenciaID } from "@/enums/referencia"
+import type { Tracos } from "@/enums/tracos"
+
 export default interface Escudo {
   id: number
   escudo: string
@@ -7,5 +10,7 @@ export default interface Escudo {
   penVelocidade: number
   volume: number
   dureza: number
-  PV: number
+  PV: number,
+  tracos: Tracos[],
+  referencia: ReferenciaID[]
 }

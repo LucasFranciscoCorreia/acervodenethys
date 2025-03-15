@@ -2,19 +2,18 @@
   <div v-if="!armadura">
     <TableComponenet title="Armaduras" :columns="columns" :content="armaduras as Armadura[]" to="/armaduras" />
   </div>
-  <div v-else>
-    <DescricaoComponent
-      :title="armadura?.armadura"
-      tipo="Item"
-      :nivel="0"
-      :tracos="armadura.tracos"
-      :descricao="armadura.descricao"
-    />
-    </div>
+  <DescricaoComponent v-else
+    :title="armadura.armadura"
+    tipo="Item"
+    :nivel="0"
+    :tracos="armadura.tracos"
+    :descricao="armadura.descricao"
+    :sources="armadura.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+  />
 </template>
 
 <script setup lang="ts">
-import {findArmadura } from '@/data/utils'
+import {findArmadura, findReferencia } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'

@@ -11,6 +11,9 @@ import ArmadurasView from '@/views/ArmadurasView.vue'
 import EscudosView from '@/views/EscudosView.vue'
 import EquipamentosAventuraView from '@/views/EquipamentosAventuraView.vue'
 import TracosView from '@/views/TracosView.vue'
+import ReferenciasView from '@/views/ReferenciasView.vue'
+import CondicaoView from '@/views/CondicaoView.vue'
+import AcoesAtividadesView from '@/views/AcoesAtividadesView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -74,6 +77,21 @@ const router = createRouter({
       path: '/tracos',
       name: 'traços',
       component: TracosView,
+    },
+    {
+      path: '/referencias',
+      name: 'referencias',
+      component: ReferenciasView,
+    },
+    {
+      path: '/condicoes',
+      name: 'condicoes',
+      component: CondicaoView,
+    },
+    {
+      path: '/acoesatividades',
+      name: 'acoesatividades',
+      component: AcoesAtividadesView,
     }
     /*
     {

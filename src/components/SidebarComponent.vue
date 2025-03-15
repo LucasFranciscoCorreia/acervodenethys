@@ -75,7 +75,6 @@ const isActive = (link?: RouterLinkProp): boolean => {
 
 const isSublinkActive = (link?: RouterLinkProp): boolean => {
   if (link == undefined || !activeLink.value) return false
-  //console.log(link.title, activeLink.value.title, activeLink.value.title === link.title)
   return activeLink.value.title === link.title
 }
 

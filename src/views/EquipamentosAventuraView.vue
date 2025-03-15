@@ -2,15 +2,14 @@
   <div v-if="!equipamento">
     <TableComponenet title="Equipamentos de Aventura" :columns="columns" :content="equipamentos as EquipamentoAventura[]" to="/equipamentos" />
   </div>
-  <div v-else>
-    <DescricaoComponent
-      :title="equipamento?.nome"
-      tipo="Item"
-      :nivel="0"
-      :tracos="[]"
-      :descricao="equipamento.descricao"
-    />
-    </div>
+  <DescricaoComponent v-else
+    :title="equipamento.nome"
+    tipo="Item"
+    :nivel="0"
+    :tracos="[]"
+    :descricao="equipamento.descricao"
+    :sources="equipamento.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+  />
 </template>
 
 <script setup lang="ts">
@@ -21,7 +20,7 @@ import TableComponenet from '@/components/TableComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import equipamentos from '@/data/equipamentosAventura.json'
 import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'
-import { findEquipamentoAventura } from '@/data/utils'
+import { findEquipamentoAventura, findReferencia } from '@/data/utils'
 
 const route = useRoute()
 

@@ -2,19 +2,18 @@
   <div v-if="!arma">
     <TableComponenet title="Armas" :columns="columns" :content="armas as Arma[]" to="/armas" />
   </div>
-  <div v-else>
-    <DescricaoComponent
-      :title="arma.arma"
-      tipo="Item"
-      :nivel="0"
-      :tracos="arma.tracos"
-      :descricao="arma.descricao"
-    />
-    </div>
+  <DescricaoComponent v-else
+    :title="arma.arma"
+    tipo="Item"
+    :nivel="0"
+    :tracos="arma.tracos"
+    :descricao="arma.descricao"
+    :sources="arma.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+  />
 </template>
 
 <script setup lang="ts">
-import { findArma } from '@/data/utils'
+import { findArma, findReferencia } from '@/data/utils'
 import type Arma from '@/interfaces/Arma'
 import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'

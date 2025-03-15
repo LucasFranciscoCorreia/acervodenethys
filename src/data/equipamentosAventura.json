@@ -7,7 +7,8 @@
         "volume": 0.1,
         "maos": 2,
         "nivel" : 0,
-        "equipado": false
+        "equipado": false,
+        "referencia": [1]
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "volume": 1,
         "maos": 2,
         "nivel": 0,
-        "equipado": true
+        "equipado": true,
+        "referencia": [1]
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@
         "volume": 1,
         "maos": 2,
         "nivel": 0,
-        "equipado": true
+        "equipado": true,
+        "referencia": [1]
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@
         "volume": 1,
         "maos": 2,
         "nivel": 0,
-        "equipado": true
+        "equipado": true,
+        "referencia": [1]
     },
     {
         "id": 5,
@@ -47,6 +51,7 @@
         "volume": 0,
         "maos": 0,
         "nivel": 0,
-        "equipado": false
+        "equipado": false,
+        "referencia": [1]
     }
 ]

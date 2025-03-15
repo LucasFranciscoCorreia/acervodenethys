@@ -32,6 +32,7 @@
 <script setup lang="ts">
 import { findTracoDescricao } from '@/data/utils'
 import type { Tracos } from '@/enums/tracos'
+import type AcaoAtividade from '@/interfaces/AcaoAtividade'
 import type Arma from '@/interfaces/Arma'
 import type Armadura from '@/interfaces/Armadura'
 import type Column from '@/interfaces/Column'
@@ -52,7 +53,7 @@ const props = defineProps({
     required: true
   },
   content: {
-    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento>,
+    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade>,
     required: true
   },
   to: {
@@ -63,7 +64,7 @@ const props = defineProps({
 
 const tableContent: Ref<Array<Prop>> = ref([])
 
-const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento) => {
+const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade) => {
   if ('titulo' in el) {
     return el.titulo
   } else if ('arma' in el) {
@@ -79,7 +80,7 @@ const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura
 
 const updateTableContent = () => {
   const content: Array<Prop> =
-    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento) => {
+    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade) => {
       const row: Prop = {
         id: el.id,
         titulo: tableTitle(el),
@@ -117,8 +118,7 @@ const updateTableContent = () => {
 
 watch(
   () => props.content,
-  (newContent) => {
-    console.log(newContent)
+  () => {
     updateTableContent()
   },
   { immediate: true }

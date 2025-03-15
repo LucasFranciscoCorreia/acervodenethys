@@ -1,6 +1,7 @@
 import type { DadoDano } from '@/enums/dadoDano'
 import type { GrupoArma } from '@/enums/grupoArma'
 import type { MaosArma } from '@/enums/maosArma'
+import type { ReferenciaID } from '@/enums/referencia'
 import type { TipoDano } from '@/enums/tipoDano'
 import type { Tracos } from '@/enums/tracos'
 
@@ -14,5 +15,6 @@ export default interface Arma {
   volume: number
   maos: MaosArma
   grupo: GrupoArma
-  tracos: Tracos[]
+  tracos: Tracos[],
+  referencia: ReferenciaID[]
 }

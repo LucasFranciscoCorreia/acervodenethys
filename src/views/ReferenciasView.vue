@@ -1,48 +1,43 @@
 <template>
-  <div v-if="!traco">
+   <div v-if="!referencia">
     <table>
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Descrição</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="traco in tracos" :key="traco.id">
-          <td><RouterLink :to="'/tracos?id='+traco.id">{{ traco.titulo }}</RouterLink></td>
-          <td>{{ traco.descricao }}</td>
+        <tr v-for="referencia in referencias" :key="referencia.id">
+          <td><RouterLink :to="'/referencias?id='+referencia.id">{{ referencia.titulo }}</RouterLink></td>
         </tr>
       </tbody>
     </table>
   </div>
   <DescricaoComponent v-else
-    :title="traco.titulo"
-    :tracos="[]"
-    :descricao="traco.descricao"
-    :sources="traco.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+    :title="referencia.titulo"
+    descricao=""
   />
 </template>
 
 <script lang="ts" setup>
-import { findReferencia, findTracoDescricao } from '@/data/utils';
-import type TracosDescricao from '@/interfaces/TracosDescricao';
+import type Referencia from '@/interfaces/Referencia';
 import { ref, watch, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
-import tracos from '@/data/tracos.json';
+import referencias from '@/data/referencias.json';
+import { findReferencia } from '@/data/utils';
 import DescricaoComponent from '@/components/DescricaoComponent.vue';
 
-const route = useRoute()
-
-const traco: Ref<TracosDescricao | undefined> = ref(findTracoDescricao(route.query?.id as unknown as number))
+const route = useRoute();
+const referencia: Ref<Referencia | undefined> = ref(findReferencia(Number(route.query.id)));
 
 watch(
   () => route.query.id,
-  (newTraco) => {
-    const trait = findTracoDescricao(newTraco as unknown as number)
-    if (!trait) {
-      traco.value = undefined
+  (newReferencia) => {
+    const source = findReferencia(Number(newReferencia));
+    if (!source) {
+      referencia.value = undefined
     } else {
-      traco.value = trait
+      referencia.value = source
     }
   },
   { immediate: true },
@@ -58,7 +53,7 @@ table {
 
 th,
 td {
-  padding: 0.5em; /* Add padding to create margin effect */
+  padding: 0.5em;
   border: 1px solid #ddd;
 }
 

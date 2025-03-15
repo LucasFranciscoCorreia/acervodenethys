@@ -1,4 +1,5 @@
 import type { GrupoArmadura } from "@/enums/grupoArmadura"
+import type { ReferenciaID } from "@/enums/referencia"
 import type { Tracos } from "@/enums/tracos"
 
 export default interface Armadura {
@@ -12,5 +13,6 @@ export default interface Armadura {
   penVelocidade: number,
   volume: number,
   grupo: GrupoArmadura,
-  tracos: Tracos[]
+  tracos: Tracos[],
+  referencia: ReferenciaID[]
 }
