@@ -33,12 +33,12 @@ import DescricaoComponent from '@/components/DescricaoComponent.vue';
 
 const route = useRoute()
 
-const traco: Ref<TracosDescricao | undefined> = ref(findTracoDescricao(route.query?.id as unknown as number))
+const traco: Ref<TracosDescricao | undefined> = ref(findTracoDescricao(Number(route.query?.id)))
 
 watch(
   () => route.query.id,
   (newTraco) => {
-    const trait = findTracoDescricao(newTraco as unknown as number)
+    const trait = findTracoDescricao(Number(newTraco))
     if (!trait) {
       traco.value = undefined
     } else {

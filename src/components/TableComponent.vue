@@ -38,6 +38,7 @@ import type Armadura from '@/interfaces/Armadura'
 import type Column from '@/interfaces/Column'
 import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'
 import type Escudo from '@/interfaces/Escudo'
+import type Magia from '@/interfaces/Magia'
 import type Prop from '@/interfaces/Prop'
 import type Talento from '@/interfaces/Talento'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
@@ -53,7 +54,7 @@ const props = defineProps({
     required: true
   },
   content: {
-    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade>,
+    type: Array<Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade | Magia>,
     required: true
   },
   to: {
@@ -64,7 +65,7 @@ const props = defineProps({
 
 const tableContent: Ref<Array<Prop>> = ref([])
 
-const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade) => {
+const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade | Magia) => {
   if ('titulo' in el) {
     return el.titulo
   } else if ('arma' in el) {
@@ -73,6 +74,8 @@ const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura
     return el.escudo
   } else if ('armadura' in el) {
     return el.armadura
+  } else if ('magia' in el) {
+    return el.magia
   } else{
     return el.nome
   }
@@ -80,7 +83,7 @@ const tableTitle = (el: Talento | Arma | Armadura | Escudo | EquipamentoAventura
 
 const updateTableContent = () => {
   const content: Array<Prop> =
-    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade) => {
+    props.content?.map((el: Talento | Arma | Armadura | Escudo | EquipamentoAventura | Talento | AcaoAtividade | Magia) => {
       const row: Prop = {
         id: el.id,
         titulo: tableTitle(el),
@@ -109,6 +112,9 @@ const updateTableContent = () => {
         }
         if(col.key === 'tracos' && 'tracos' in el) {
           row['tracos'] = (el as Talento).tracos.map((traco: Tracos): TracosDescricao | undefined => findTracoDescricao(traco)).filter((traco: TracosDescricao | undefined) => traco);
+        }
+        if (col.key === 'magia' && 'magia' in el) {
+          row['magia'] = (el as Magia).magia
         }
       });
       return row

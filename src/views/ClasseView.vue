@@ -33,7 +33,7 @@ const classe: Ref<Classe | undefined> = ref(findClasse(route.query.id as string)
 watch(
   () => route.query.id,
   (newClasse) => {
-    const job = findClasse(newClasse as string)
+    const job = findClasse(String(newClasse))
     if (!job) {
       classe.value = undefined
     } else {

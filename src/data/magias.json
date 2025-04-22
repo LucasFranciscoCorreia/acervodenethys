@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "magia": "Bola de fogo",
+        "tradicao": [1, 3],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 3,
+        "tracos": [16, 18, 19],
+        "referencia": [1]
+    },
+    {
+        "id": 2,
+        "magia": "Arco elétrico",
+        "tradicao": [1, 3],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 1,
+        "tracos": [18, 20, 16, 21],
+        "referencia": [1]
+    },
+    {
+        "id": 3,
+        "magia": "Medo",
+        "tradicao": [1,2,3,4],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 1,
+        "tracos": [18, 24, 22, 16, 23],
+        "referencia": [1]
+    },
+    {
+        "id": 4,
+        "magia": "Açoite de vitalidade",
+        "tradicao": [2, 3],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 1,
+        "tracos": [18, 16, 21, 25],
+        "referencia": [1]
+    },
+    {
+        "id": 5,
+        "magia": "Luz Sagrada",
+        "tradicao": [],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 3,
+        "tracos": [15, 18, 19, 26, 16, 27],
+        "referencia": [1]
+    },
+    {
+        "id": 6,
+        "magia": "Convocar instrumento",
+        "tradicao": [1,2,4],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 1,
+        "tracos": [18, 16, 21],
+        "referencia": [1]
+    },
+    {
+        "id": 7,
+        "magia": "Cabana confortável",
+        "tradicao": [1, 4],
+        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Fames posuere adipiscing semper primis ac ante dolor. Suscipit risus taciti pellentesque, dui eget dapibus. Tellus vitae dictum faucibus donec porta dictum litora tortor. Sit rutrum duis dapibus suscipit convallis etiam lorem pellentesque. Viverra nostra auctor massa ridiculus suscipit lacus platea. Luctus curabitur facilisi odio per magna vivamus facilisis ad hendrerit. Interdum aliquam montes, facilisi ridiculus nullam sodales venenatis. Magnis non inceptos nostra fermentum nisi laoreet tortor dolor iaculis. Posuere turpis integer facilisi purus ac, mus enim libero.",
+        "ranque": 3,
+        "tracos": [18, 28, 16],
+        "referencia": [1]
+    }
+]

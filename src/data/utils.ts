@@ -27,6 +27,8 @@ import equipamentos from '@/data/equipamentosAventura.json'
 import referencias from '@/data/referencias.json'
 import condicoes from '@/data/condicoes.json'
 import atividades from '@/data/acoesAtividades.json'
+import magias from '@/data/magias.json'
+import type Magia from '@/interfaces/Magia'
 import type Arma from '@/interfaces/Arma'
 import type Armadura from '@/interfaces/Armadura'
 import type Escudo from '@/interfaces/Escudo'
@@ -34,6 +36,7 @@ import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'
 import type Referencia from '@/interfaces/Referencia'
 import type Condicao from '@/interfaces/Condicao'
 import type AcaoAtividade from '@/interfaces/AcaoAtividade'
+import { TradicaoMagia } from '@/enums/tradicaoMagia'
 
 export const findRoute = (path: string): RouterLinkProp | undefined => {
   if (path === '/') return undefined;
@@ -123,6 +126,13 @@ export const findAtividade = (id?: number): AcaoAtividade | undefined => {
   return atividades.find((a) => a.id === id) as unknown as AcaoAtividade | undefined
 }
 
+export const findMagia = (id?: number): Magia | undefined => {
+  console.log(id);
+  if (id === undefined) return undefined;
+  console.log(magias.find((a) => a.id === id));
+  return magias.find((a) => a.id === id) as unknown as Magia | undefined
+}
+
 export const collectAncestralidadesByName = computed((): Ancestralidade[] => {
   return ancestralidades.sort((a, b) =>
     a.ancestralidade.localeCompare(b.ancestralidade),
@@ -157,9 +167,43 @@ export const collectTalentosPericia = computed((): Talento[] => {
   return collectTalentosByName.value.filter((el: Talento) => el.tracos.includes(Tracos.PERICIA)) as Talento[];
 });
 
+export const collectTalentosGeraisOnly = computed(() => {
+  return collectTalentosByName.value.filter((el: Talento) => el.tracos.includes(Tracos.GERAL) && !el.tracos.includes(Tracos.PERICIA))  as Talento[];
+})
+
 export const collectTalentosByAnyTracos = (tracos?: Tracos[]): Talento[] => {
   if (!tracos || tracos.length === 0) return []
   return talentos
     .filter((el) => tracos.some((traco) => el.tracos.includes(traco)))
     .sort((a, b) => a.nivel - b.nivel || a.titulo.localeCompare(b.titulo)) as Talento[]
 }
+
+export const collectMagiasByName = computed((): Magia[] => {
+  return magias.sort((a, b) => a.magia.localeCompare(b.magia)) as unknown as Magia[]
+});
+
+export const collectMagiasArcanas = computed((): Magia[] => {
+  return magias.filter((el: Magia) => el.tradicao.includes(TradicaoMagia.ARCANA)) as Magia[];
+});
+
+export const collectMagiasDivinas = computed((): Magia[] => {
+  return magias.filter((el: Magia) => el.tradicao.includes(TradicaoMagia.DIVINA)) as Magia[];
+})
+
+export const collectMagiasPrimais = computed((): Magia[] => {
+  return magias.filter((el: Magia) => el.tradicao.includes(TradicaoMagia.PRIMAL)) as Magia[];
+});
+
+export const collectMagiasOcultistas = computed((): Magia[] => {
+  return magias.filter((el: Magia) => el.tradicao.includes(TradicaoMagia.OCULTISTA)) as Magia[];
+});
+
+export const collectMagiasFoco = computed((): Magia[] => {
+  return magias;
+  //return magias.filter((el: Magia) => el.tracos.includes(Tracos.FOCALIZAR)) as Magia[];
+})
+
+export const collectMagiasRitual = computed((): Magia[] => {
+  return magias;
+  // return magias.filter((el: Magia) => el.tracos.includes(Tracos.RITUAL)) as Magia[];
+});

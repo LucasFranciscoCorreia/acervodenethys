@@ -28,12 +28,12 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const arquetipo: Ref<Arquetipo | undefined> = ref(findArquetipo(route.query.id as string))
+const arquetipo: Ref<Arquetipo | undefined> = ref(findArquetipo(String(route.query.id)))
 
 watch(
   () => route.query.id,
   (newArquetipo) => {
-    const archetype = findArquetipo(newArquetipo as string)
+    const archetype = findArquetipo(String(newArquetipo))
     if (!archetype) {
       arquetipo.value = undefined
     } else {

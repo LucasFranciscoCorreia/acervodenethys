@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import TableComponent from '@/components/TableComponent.vue'
-import { collectTalentosByName, collectTalentosGerais, collectTalentosPericia, findReferencia, findTalento } from '@/data/utils'
+import { collectTalentosGerais, collectTalentosGeraisOnly, collectTalentosPericia, findReferencia, findTalento } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import type Talento from '@/interfaces/Talento'
 import { ref, watch, type Ref } from 'vue'
@@ -26,20 +26,20 @@ const route = useRoute()
 const collectTalentosByCategoria = (categoria: string): Talento[] => {
   switch(categoria){
       case 'gerais':
-        return collectTalentosGerais.value
+        return collectTalentosGeraisOnly.value
         break;
       case 'pericia':
         return collectTalentosPericia.value
         break;
       default:
-        return collectTalentosByName.value
+        return collectTalentosGerais.value
     }
 }
 
 
-const talentos = ref(collectTalentosByCategoria(route.query.categoria as string))
+const talentos = ref(collectTalentosByCategoria(String(route.query.categoria)))
 
-const talento: Ref<Talento | undefined> = ref(findTalento(route.query.id as unknown as number))
+const talento: Ref<Talento | undefined> = ref(findTalento(Number(route.query.id)))
 
 const columns: Ref<Column[]> = ref([
   {
@@ -59,7 +59,7 @@ const columns: Ref<Column[]> = ref([
 watch(
   () => route.query.id,
   (newTalento) => {
-    const feat = findTalento(newTalento as unknown as number)
+    const feat = findTalento(Number(newTalento))
     if (!feat) {
       talento.value = undefined
     } else {
@@ -72,7 +72,7 @@ watch(
 watch(
   () => route.query.categoria,
   (newCategoria) => {
-    talentos.value = collectTalentosByCategoria(newCategoria as string)
+    talentos.value = collectTalentosByCategoria(String(newCategoria as string))
   },
 )
 </script>

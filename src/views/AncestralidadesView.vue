@@ -55,14 +55,14 @@ const ancestralidade: Ref<Ancestralidade | undefined> = ref(
   findAncestralidade(route.query.id as string),
 )
 
-const herancas: Ref<Heranca | undefined> = ref(findHerancas(route.query.id as string))
+const herancas: Ref<Heranca | undefined> = ref(findHerancas(String(route.query.id)))
 const talentos: Ref<Talento[]> = ref(
   collectTalentosByAnyTracos(ancestralidade.value?.idTracos as Tracos[]),
 )
 watch(
   () => route.query.id,
   (newAncestralidade) => {
-    const ancestry = findAncestralidade(newAncestralidade as string)
+    const ancestry = findAncestralidade(String(newAncestralidade))
     if (!ancestry) {
       ancestralidade.value = undefined
       herancas.value = undefined

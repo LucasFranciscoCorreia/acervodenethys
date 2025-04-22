@@ -27,12 +27,12 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const biografia: Ref<Biografia | undefined> = ref(findBiografia(route.query.id as string))
+const biografia: Ref<Biografia | undefined> = ref(findBiografia(String(route.query.id)))
 
 watch(
   () => route.query.id,
   (newBiografia) => {
-    const background = findBiografia(newBiografia as string)
+    const background = findBiografia(String(newBiografia))
     if (!background) {
       biografia.value = undefined
     } else {

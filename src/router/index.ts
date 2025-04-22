@@ -14,6 +14,7 @@ import TracosView from '@/views/TracosView.vue'
 import ReferenciasView from '@/views/ReferenciasView.vue'
 import CondicaoView from '@/views/CondicaoView.vue'
 import AcoesAtividadesView from '@/views/AcoesAtividadesView.vue'
+import MagiasView from '@/views/MagiasView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -92,6 +93,11 @@ const router = createRouter({
       path: '/acoesatividades',
       name: 'acoesatividades',
       component: AcoesAtividadesView,
+    },
+    {
+      path: '/magias',
+      name: 'magias',
+      component: MagiasView,
     }
     /*
     {

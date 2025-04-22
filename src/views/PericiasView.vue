@@ -28,12 +28,12 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const pericia: Ref<Pericia | undefined> = ref(findPericia(route.query.id as string))
+const pericia: Ref<Pericia | undefined> = ref(findPericia(String(route.query.id)))
 
 watch(
   () => route.query.id,
   (newPericia) => {
-    const skill = findPericia(newPericia as string)
+    const skill = findPericia(String(newPericia))
     if (!skill) {
       pericia.value = undefined
     } else {
