@@ -3,5 +3,5 @@ export enum NumeroAcoes {
   ACAO_LIVRE = 1,
   UMA_ACAO = 2,
   DUAS_ACOES = 3,
-  TRES_ACOES = 4
+  TRES_ACOES = 4,
 }

@@ -1,8 +1,14 @@
 <template>
   <div v-if="!armadura">
-    <TableComponenet title="Armaduras" :columns="columns" :content="armaduras as Armadura[]" to="/armaduras" />
+    <TableComponenet
+      title="Armaduras"
+      :columns="columns"
+      :content="armaduras as Armadura[]"
+      to="/armaduras"
+    />
   </div>
-  <DescricaoComponent v-else
+  <DescricaoComponent
+    v-else
     :title="armadura.armadura"
     tipo="Item"
     :nivel="0"
@@ -13,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import {findArmadura, findReferencia } from '@/data/utils'
+import { findArmadura, findReferencia } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -63,7 +69,7 @@ const columns: Ref<Column[]> = ref([
     title: 'Traços',
     key: 'tracos',
   },
-]);
+])
 
 watch(
   () => route.query.id,

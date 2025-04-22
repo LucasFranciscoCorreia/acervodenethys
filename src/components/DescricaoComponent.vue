@@ -8,11 +8,19 @@
       <p class="trait" v-for="traco in descricaoTracos" :key="traco.id">{{ traco.titulo }}</p>
     </div>
     <p v-if="sources != undefined && sources.length > 0" class="text-sm">
-      <strong>Fonte:</strong> <span v-for="source in sources" class="font-italic text-primary" :key="source.id">{{source.titulo}}</span>
+      <strong>Fonte:</strong>
+      <span v-for="source in sources" class="font-italic text-primary" :key="source.id">{{
+        source.titulo
+      }}</span>
     </p>
     <hr />
     <p v-if="descricao != undefined">{{ descricao }}</p>
-    <div v-if="tracos != undefined && tracos.length > 0" class="mt-2 bg-secondary text-white px-3 py-2 font-weight-bold rounded">Traços</div>
+    <div
+      v-if="tracos != undefined && tracos.length > 0"
+      class="mt-2 bg-secondary text-white px-3 py-2 font-weight-bold rounded"
+    >
+      Traços
+    </div>
     <table v-if="tracos != undefined && tracos.length > 0" class="w-100">
       <tbody>
         <tr v-for="descricao in descricaoTracos" :key="descricao.id">
@@ -33,30 +41,29 @@ import type Referencia from '@/interfaces/Referencia'
 const props = defineProps({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   tracos: {
     type: Array<Tracos>,
   },
   tipo: {
-    type: String
+    type: String,
   },
   nivel: {
-    type: Number
+    type: Number,
   },
   descricao: {
     type: String,
     required: true,
-
   },
   sources: {
-    type: Array<Referencia>
-  }
+    type: Array<Referencia>,
+  },
 })
 
-const descricaoTracos: TracosDescricao[] = props.tracos
-  ?.map((el) => findTracoDescricao(el))
-  .filter((el) => el != undefined) ?? [] as TracosDescricao[]
+const descricaoTracos: TracosDescricao[] =
+  props.tracos?.map((el) => findTracoDescricao(el)).filter((el) => el != undefined) ??
+  ([] as TracosDescricao[])
 </script>
 <style scoped>
 div.bg-title {

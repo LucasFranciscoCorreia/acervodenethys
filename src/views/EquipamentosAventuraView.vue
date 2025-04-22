@@ -1,14 +1,22 @@
 <template>
   <div v-if="!equipamento">
-    <TableComponenet title="Equipamentos de Aventura" :columns="columns" :content="equipamentos as EquipamentoAventura[]" to="/equipamentos" />
+    <TableComponenet
+      title="Equipamentos de Aventura"
+      :columns="columns"
+      :content="equipamentos as EquipamentoAventura[]"
+      to="/equipamentos"
+    />
   </div>
-  <DescricaoComponent v-else
+  <DescricaoComponent
+    v-else
     :title="equipamento.nome"
     tipo="Item"
     :nivel="0"
     :tracos="[]"
     :descricao="equipamento.descricao"
-    :sources="equipamento.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+    :sources="
+      equipamento.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)
+    "
   />
 </template>
 
@@ -24,7 +32,9 @@ import { findEquipamentoAventura, findReferencia } from '@/data/utils'
 
 const route = useRoute()
 
-const equipamento: Ref<EquipamentoAventura | undefined> = ref(findEquipamentoAventura(Number(route.query.id)))
+const equipamento: Ref<EquipamentoAventura | undefined> = ref(
+  findEquipamentoAventura(Number(route.query.id)),
+)
 
 const columns: Ref<Column[]> = ref([
   {
@@ -47,7 +57,7 @@ const columns: Ref<Column[]> = ref([
     title: 'Volume',
     key: 'volume',
   },
-]);
+])
 
 watch(
   () => route.query.id,

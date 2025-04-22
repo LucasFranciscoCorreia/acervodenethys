@@ -98,7 +98,7 @@ const router = createRouter({
       path: '/magias',
       name: 'magias',
       component: MagiasView,
-    }
+    },
     /*
     {
       path: '/about',

@@ -1,4 +1,4 @@
-import type { ReferenciaID } from "@/enums/referencia"
+import type { ReferenciaID } from '@/enums/referencia'
 
 export default interface EquipamentoAventura {
   id: number
@@ -8,6 +8,6 @@ export default interface EquipamentoAventura {
   volume: number
   maos: number
   nivel: number
-  equipado: boolean,
+  equipado: boolean
   referencia: ReferenciaID[]
 }

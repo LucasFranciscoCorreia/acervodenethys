@@ -1,17 +1,17 @@
 [
-    {
-        "id": 1,
-        "condicao": "Agarrado",
-        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar."
-    },
-    {
-        "id": 2,
-        "condicao": "Assustado",
-        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar."
-    },
-    {
-        "id": 3,
-        "condicao": "Morrendo",
-        "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar."
-    }
+  {
+    "id": 1,
+    "condicao": "Agarrado",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar."
+  },
+  {
+    "id": 2,
+    "condicao": "Assustado",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar."
+  },
+  {
+    "id": 3,
+    "condicao": "Morrendo",
+    "descricao": "Lorem ipsum odor amet, consectetuer adipiscing elit. Curae accumsan litora egestas semper pulvinar."
+  }
 ]

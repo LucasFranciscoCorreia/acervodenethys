@@ -2,7 +2,8 @@
   <div v-if="!arma">
     <TableComponenet title="Armas" :columns="columns" :content="armas as Arma[]" to="/armas" />
   </div>
-  <DescricaoComponent v-else
+  <DescricaoComponent
+    v-else
     :title="arma.arma"
     tipo="Item"
     :nivel="0"

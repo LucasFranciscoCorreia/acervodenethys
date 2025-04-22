@@ -1,8 +1,14 @@
 <template>
   <div v-if="!talento">
-    <TableComponent title="Talentos" :columns="columns" :content="talentos as Talento[]" to="/talentos" />
+    <TableComponent
+      title="Talentos"
+      :columns="columns"
+      :content="talentos as Talento[]"
+      to="/talentos"
+    />
   </div>
-  <DescricaoComponent v-else
+  <DescricaoComponent
+    v-else
     :title="talento.titulo"
     tipo="Talento"
     :nivel="talento.nivel"
@@ -15,7 +21,13 @@
 <script lang="ts" setup>
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import TableComponent from '@/components/TableComponent.vue'
-import { collectTalentosGerais, collectTalentosGeraisOnly, collectTalentosPericia, findReferencia, findTalento } from '@/data/utils'
+import {
+  collectTalentosGerais,
+  collectTalentosGeraisOnly,
+  collectTalentosPericia,
+  findReferencia,
+  findTalento,
+} from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import type Talento from '@/interfaces/Talento'
 import { ref, watch, type Ref } from 'vue'
@@ -24,18 +36,17 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const collectTalentosByCategoria = (categoria: string): Talento[] => {
-  switch(categoria){
-      case 'gerais':
-        return collectTalentosGeraisOnly.value
-        break;
-      case 'pericia':
-        return collectTalentosPericia.value
-        break;
-      default:
-        return collectTalentosGerais.value
-    }
+  switch (categoria) {
+    case 'gerais':
+      return collectTalentosGeraisOnly.value
+      break
+    case 'pericia':
+      return collectTalentosPericia.value
+      break
+    default:
+      return collectTalentosGerais.value
+  }
 }
-
 
 const talentos = ref(collectTalentosByCategoria(String(route.query.categoria)))
 

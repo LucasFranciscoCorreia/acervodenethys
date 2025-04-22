@@ -9,13 +9,16 @@
       </thead>
       <tbody>
         <tr v-for="traco in tracos" :key="traco.id">
-          <td><RouterLink :to="'/tracos?id='+traco.id">{{ traco.titulo }}</RouterLink></td>
+          <td>
+            <RouterLink :to="'/tracos?id=' + traco.id">{{ traco.titulo }}</RouterLink>
+          </td>
           <td>{{ traco.descricao }}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <DescricaoComponent v-else
+  <DescricaoComponent
+    v-else
     :title="traco.titulo"
     :tracos="[]"
     :descricao="traco.descricao"
@@ -24,12 +27,12 @@
 </template>
 
 <script lang="ts" setup>
-import { findReferencia, findTracoDescricao } from '@/data/utils';
-import type TracosDescricao from '@/interfaces/TracosDescricao';
-import { ref, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
-import tracos from '@/data/tracos.json';
-import DescricaoComponent from '@/components/DescricaoComponent.vue';
+import { findReferencia, findTracoDescricao } from '@/data/utils'
+import type TracosDescricao from '@/interfaces/TracosDescricao'
+import { ref, watch, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+import tracos from '@/data/tracos.json'
+import DescricaoComponent from '@/components/DescricaoComponent.vue'
 
 const route = useRoute()
 

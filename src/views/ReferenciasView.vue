@@ -1,5 +1,5 @@
 <template>
-   <div v-if="!referencia">
+  <div v-if="!referencia">
     <table>
       <thead>
         <tr>
@@ -8,32 +8,33 @@
       </thead>
       <tbody>
         <tr v-for="referencia in referencias" :key="referencia.id">
-          <td><RouterLink :to="'/referencias?id='+referencia.id">{{ referencia.titulo }}</RouterLink></td>
+          <td>
+            <RouterLink :to="'/referencias?id=' + referencia.id">{{
+              referencia.titulo
+            }}</RouterLink>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <DescricaoComponent v-else
-    :title="referencia.titulo"
-    descricao=""
-  />
+  <DescricaoComponent v-else :title="referencia.titulo" descricao="" />
 </template>
 
 <script lang="ts" setup>
-import type Referencia from '@/interfaces/Referencia';
-import { ref, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
-import referencias from '@/data/referencias.json';
-import { findReferencia } from '@/data/utils';
-import DescricaoComponent from '@/components/DescricaoComponent.vue';
+import type Referencia from '@/interfaces/Referencia'
+import { ref, watch, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+import referencias from '@/data/referencias.json'
+import { findReferencia } from '@/data/utils'
+import DescricaoComponent from '@/components/DescricaoComponent.vue'
 
-const route = useRoute();
-const referencia: Ref<Referencia | undefined> = ref(findReferencia(Number(route.query.id)));
+const route = useRoute()
+const referencia: Ref<Referencia | undefined> = ref(findReferencia(Number(route.query.id)))
 
 watch(
   () => route.query.id,
   (newReferencia) => {
-    const source = findReferencia(Number(newReferencia));
+    const source = findReferencia(Number(newReferencia))
     if (!source) {
       referencia.value = undefined
     } else {

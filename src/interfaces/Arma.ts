@@ -15,6 +15,6 @@ export default interface Arma {
   volume: number
   maos: MaosArma
   grupo: GrupoArma
-  tracos: Tracos[],
+  tracos: Tracos[]
   referencia: ReferenciaID[]
 }

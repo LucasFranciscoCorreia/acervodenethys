@@ -1,24 +1,30 @@
 <template>
   <div v-if="!atividade">
-    <TableComponent title="Ações e Atividades" :columns="columns" :content="atividades as AcaoAtividade[]" to="/acoesatividades"/>
-  </div>
-  <DescricaoComponent v-else
-      :title="atividade.nome"
-      :tracos="atividade.tracos"
-      :descricao="atividade.descricao"
-      :sources="atividade.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+    <TableComponent
+      title="Ações e Atividades"
+      :columns="columns"
+      :content="atividades as AcaoAtividade[]"
+      to="/acoesatividades"
     />
+  </div>
+  <DescricaoComponent
+    v-else
+    :title="atividade.nome"
+    :tracos="atividade.tracos"
+    :descricao="atividade.descricao"
+    :sources="atividade.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+  />
 </template>
 
 <script setup lang="ts">
-import { findAtividade, findReferencia } from '@/data/utils';
-import { ref, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
-import atividades from '@/data/acoesAtividades.json';
-import type AcaoAtividade from '@/interfaces/AcaoAtividade';
-import TableComponent from '@/components/TableComponent.vue';
-import type Column from '@/interfaces/Column';
-import DescricaoComponent from '@/components/DescricaoComponent.vue';
+import { findAtividade, findReferencia } from '@/data/utils'
+import { ref, watch, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+import atividades from '@/data/acoesAtividades.json'
+import type AcaoAtividade from '@/interfaces/AcaoAtividade'
+import TableComponent from '@/components/TableComponent.vue'
+import type Column from '@/interfaces/Column'
+import DescricaoComponent from '@/components/DescricaoComponent.vue'
 
 const route = useRoute()
 
@@ -53,16 +59,16 @@ const columns: Ref<Column[]> = ref([
     title: 'Traços',
     key: 'tracos',
   },
-]);
+])
 
 watch(
   () => route.query.id,
   (newAtividade) => {
-    const activity = findAtividade(Number(newAtividade));
+    const activity = findAtividade(Number(newAtividade))
     if (!activity) {
-      atividade.value = undefined;
+      atividade.value = undefined
     } else {
-      atividade.value = activity;
+      atividade.value = activity
     }
   },
   { immediate: true },

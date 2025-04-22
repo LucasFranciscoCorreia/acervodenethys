@@ -6,6 +6,6 @@ export default interface Talento {
   titulo: string
   descricao: string
   nivel: number
-  tracos: Tracos[],
+  tracos: Tracos[]
   referencia: ReferenciaID[]
 }

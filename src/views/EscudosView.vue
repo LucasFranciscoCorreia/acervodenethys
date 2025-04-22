@@ -1,8 +1,14 @@
 <template>
   <div v-if="!escudo">
-    <TableComponenet title="Escudos" :columns="columns" :content="escudos as Escudo[]" to="/escudos" />
+    <TableComponenet
+      title="Escudos"
+      :columns="columns"
+      :content="escudos as Escudo[]"
+      to="/escudos"
+    />
   </div>
-  <DescricaoComponent v-else
+  <DescricaoComponent
+    v-else
     :title="escudo.escudo"
     tipo="Item"
     :nivel="0"
@@ -13,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import {findEscudo, findReferencia } from '@/data/utils'
+import { findEscudo, findReferencia } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -55,7 +61,7 @@ const columns: Ref<Column[]> = ref([
     title: 'Volume',
     key: 'volume',
   },
-]);
+])
 
 watch(
   () => route.query.id,

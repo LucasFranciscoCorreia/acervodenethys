@@ -9,5 +9,5 @@ export enum RanqueMagia {
   RANQUE_7 = 7,
   RANQUE_8 = 8,
   RANQUE_9 = 9,
-  RANQUE_10 = 10
+  RANQUE_10 = 10,
 }

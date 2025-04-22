@@ -1,6 +1,5 @@
 export default interface Condicao {
-  id: number,
-  condicao: string,
+  id: number
+  condicao: string
   descricao: string
-
 }

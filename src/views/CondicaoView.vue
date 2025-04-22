@@ -1,5 +1,5 @@
 <template>
-     <div v-if="!condicao">
+  <div v-if="!condicao">
     <table>
       <thead>
         <tr>
@@ -9,32 +9,31 @@
       </thead>
       <tbody>
         <tr v-for="condicao in condicoes" :key="condicao.id">
-          <td><RouterLink :to="'/condicoes?id='+condicao.id">{{ condicao.condicao }}</RouterLink></td>
+          <td>
+            <RouterLink :to="'/condicoes?id=' + condicao.id">{{ condicao.condicao }}</RouterLink>
+          </td>
           <td>{{ condicao.descricao }}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <DescricaoComponent v-else
-    :title="condicao.condicao"
-    :descricao="condicao.descricao"
-    />
+  <DescricaoComponent v-else :title="condicao.condicao" :descricao="condicao.descricao" />
 </template>
 
 <script setup lang="ts">
-import condicoes from '@/data/condicoes.json';
-import type Condicao from '@/interfaces/Condicao';
-import { ref, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
-import { findCondicao } from '@/data/utils';
-import DescricaoComponent from '@/components/DescricaoComponent.vue';
+import condicoes from '@/data/condicoes.json'
+import type Condicao from '@/interfaces/Condicao'
+import { ref, watch, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { findCondicao } from '@/data/utils'
+import DescricaoComponent from '@/components/DescricaoComponent.vue'
 
-const route = useRoute();
-const condicao: Ref<Condicao | undefined> = ref(findCondicao(Number(route.query.id)));
+const route = useRoute()
+const condicao: Ref<Condicao | undefined> = ref(findCondicao(Number(route.query.id)))
 watch(
   () => route.query.id,
   (newCondicao) => {
-    const condition = findCondicao(Number(newCondicao));
+    const condition = findCondicao(Number(newCondicao))
     if (!condition) {
       condicao.value = undefined
     } else {
@@ -43,7 +42,6 @@ watch(
   },
   { immediate: true },
 )
-
 </script>
 
 <style scoped>
