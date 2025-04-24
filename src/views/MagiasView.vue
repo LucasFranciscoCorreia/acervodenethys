@@ -55,11 +55,8 @@ const collectMagiasByCategoria = (categoria: string): Magia[] => {
 
 const magias = ref(collectMagiasByCategoria(String(route.query.tipo)))
 
-console.log(magias.value)
-
 const magia: Ref<Magia | undefined> = ref(findMagia(Number(route.query.id)))
 
-console.log(magia.value)
 const columns: Ref<Column[]> = ref([
   {
     title: 'Magia',
@@ -86,7 +83,6 @@ watch(
   () => route.query.id,
   (newMagia) => {
     const spell = findMagia(Number(newMagia))
-    console.log(spell)
     if (!spell) {
       magia.value = undefined
     } else {

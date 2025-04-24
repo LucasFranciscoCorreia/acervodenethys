@@ -100,31 +100,31 @@
     "title": "Magias",
     "sublinks": [
       {
-        "href": "magias",
+        "href": "/magias",
         "title": "Todas"
       },
       {
-        "href": "magias?tipo=arcana",
+        "href": "/magias?tipo=arcana",
         "title": "Arcanas"
       },
       {
-        "href": "magias?tipo=divina",
+        "href": "/magias?tipo=divina",
         "title": "Divinas"
       },
       {
-        "href": "magias?tipo=ocultista",
+        "href": "/magias?tipo=ocultista",
         "title": "Ocultistas"
       },
       {
-        "href": "magias?tipo=primal",
+        "href": "/magias?tipo=primal",
         "title": "Primais"
       },
       {
-        "href": "magias?tipo=foco",
+        "href": "/magias?tipo=foco",
         "title": "Foco"
       },
       {
-        "href": "magias?tipo=ritual",
+        "href": "/magias?tipo=ritual",
         "title": "Rituais"
       }
     ]

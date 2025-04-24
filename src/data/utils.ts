@@ -40,6 +40,7 @@ import { TradicaoMagia } from '@/enums/tradicaoMagia'
 
 export const findRoute = (path: string): RouterLinkProp | undefined => {
   if (path === '/') return undefined
+  console.log(links)
   let activeRoute: RouterLinkProp | undefined = links.find(
     (link: RouterLinkProp) => link.href === path,
   )
@@ -127,9 +128,7 @@ export const findAtividade = (id?: number): AcaoAtividade | undefined => {
 }
 
 export const findMagia = (id?: number): Magia | undefined => {
-  console.log(id)
   if (id === undefined) return undefined
-  console.log(magias.find((a) => a.id === id))
   return magias.find((a) => a.id === id) as unknown as Magia | undefined
 }
 

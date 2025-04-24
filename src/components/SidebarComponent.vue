@@ -53,9 +53,12 @@ const activeLink: Ref<RouterLinkProp | undefined> = ref<RouterLinkProp | undefin
 )
 
 watch(
-  () => route.path,
-  (newPath: string) => {
+  () => [route.fullPath, route.path] as [string, string],
+  ([newPath, path]: [string, string]) => {
     activeLink.value = findRoute(newPath)
+    if (activeLink.value === undefined) {
+      activeLink.value = findRoute(path)
+    }
   },
   { immediate: true },
 )
