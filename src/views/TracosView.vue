@@ -27,12 +27,16 @@
 </template>
 
 <script lang="ts" setup>
-import { findReferencia, findTracoDescricao } from '@/data/utils'
+import { findTracoDescricao } from '@/data/utils'
 import type TracosDescricao from '@/interfaces/TracosDescricao'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import tracos from '@/data/tracos.json'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
+import type Referencia from '@/interfaces/Referencia'
+
+const referencias: Ref<Referencia[]> = ref([])
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
 
 const route = useRoute()
 

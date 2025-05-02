@@ -1,6 +1,7 @@
 [
   {
-    "ancestralidade": "anao",
+    "id": 1,
+    "ancestralidade": 1,
     "herancas": [
       {
         "heranca": "Anão da forja",
@@ -17,7 +18,8 @@
     ]
   },
   {
-    "ancestralidade": "elfo",
+    "id": 2,
+    "ancestralidade": 2,
     "herancas": [
       {
         "heranca": "Elfo antigo",
@@ -34,7 +36,8 @@
     ]
   },
   {
-    "ancestralidade": "humano",
+    "id": 3,
+    "ancestralidade": 3,
     "herancas": [
       {
         "heranca": "Humano perito",

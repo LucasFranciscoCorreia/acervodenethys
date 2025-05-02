@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { findAtividade, findReferencia } from '@/data/utils'
+import { findAtividade } from '@/data/utils'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import atividades from '@/data/acoesAtividades.json'
@@ -25,8 +25,12 @@ import type AcaoAtividade from '@/interfaces/AcaoAtividade'
 import TableComponent from '@/components/TableComponent.vue'
 import type Column from '@/interfaces/Column'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
+import type Referencia from '@/interfaces/Referencia'
 
 const route = useRoute()
+
+const referencias: Ref<Referencia[]> = ref([])
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
 
 const atividade: Ref<AcaoAtividade | undefined> = ref(findAtividade(Number(route.query?.id)))
 

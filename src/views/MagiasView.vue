@@ -25,12 +25,15 @@ import {
   collectMagiasPrimais,
   collectMagiasRitual,
   findMagia,
-  findReferencia,
 } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import type Magia from '@/interfaces/Magia'
+import type Referencia from '@/interfaces/Referencia'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
+
+const referencias: Ref<Referencia[]> = ref([])
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
 
 const route = useRoute()
 

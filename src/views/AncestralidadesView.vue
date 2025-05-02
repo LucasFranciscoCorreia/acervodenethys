@@ -2,11 +2,11 @@
   <div v-if="!ancestralidade">
     <div class="card-row">
       <div
-        v-for="ancestralidade in collectAncestralidadesByName"
+        v-for="ancestralidade in ancestralidades"
         :key="ancestralidade.ancestralidade"
       >
         <CardComponent
-          :link-to="'/ancestralidades?id=' + ancestralidade.href"
+          :link-to="'/ancestralidades?id=' + ancestralidade.id"
           :title="ancestralidade.ancestralidade"
           :descricao="ancestralidade.descricao"
         />
@@ -31,7 +31,7 @@
       <TableComponenet
         title="Talentos"
         :columns="columns"
-        :content="talentos as Talento[]"
+        :content="talentosFilter as Talento[]"
         to="/talentos"
       />
     </div>
@@ -39,47 +39,68 @@
 </template>
 
 <script lang="ts" setup>
-import CardComponent from '@/components/CardComponent.vue'
-import TableComponenet from '@/components/TableComponent.vue'
+import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+
 import {
-  collectAncestralidadesByName,
-  collectTalentosByAnyTracos,
-  findAncestralidade,
   findHerancas,
 } from '@/data/utils'
-import type { Tracos } from '@/enums/tracos'
+
+import CardComponent from '@/components/CardComponent.vue'
+import TableComponenet from '@/components/TableComponent.vue'
+import HttpRequest from '@/http.request'
+
 import type Ancestralidade from '@/interfaces/Ancestralidade'
 import type Heranca from '@/interfaces/Heranca'
+import type Referencia from '@/interfaces/Referencia'
 import type Talento from '@/interfaces/Talento'
-import { ref, watch, type Ref } from 'vue'
-import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const ancestralidade: Ref<Ancestralidade | undefined> = ref(
-  findAncestralidade(route.query.id as string),
-)
+const isLoading: Ref<boolean> = ref(true)
 
-const herancas: Ref<Heranca | undefined> = ref(findHerancas(String(route.query.id)))
-const talentos: Ref<Talento[]> = ref(
-  collectTalentosByAnyTracos(ancestralidade.value?.idTracos as Tracos[]),
-)
-watch(
-  () => route.query.id,
-  (newAncestralidade) => {
-    const ancestry = findAncestralidade(String(newAncestralidade))
-    if (!ancestry) {
-      ancestralidade.value = undefined
-      herancas.value = undefined
-      talentos.value = []
-    } else {
-      ancestralidade.value = ancestry
-      herancas.value = findHerancas(newAncestralidade as string)
-      talentos.value = collectTalentosByAnyTracos(ancestry.idTracos as Tracos[])
-    }
-  },
-  { immediate: true },
-)
+const ancestralidades: Ref<Ancestralidade[]> = ref([])
+const referencias: Ref<Referencia[]> = ref([])
+const talentos: Ref<Talento[]> = ref([])
+
+onMounted(async () => {
+  isLoading.value = true
+
+  const ref = HttpRequest.instance.getReferencias().then(res => {
+    referencias.value = res.sort((a, b) => a.titulo.localeCompare(b.titulo));
+  });
+
+  const tal = HttpRequest.instance.getTalentos().then(res => {
+    talentos.value = res.sort((a, b) => a.nivel - b.nivel);
+  });
+
+  const anc = HttpRequest.instance.getAncestralidades().then(res => {
+    ancestralidades.value = res.sort((a, b) => a.ancestralidade.localeCompare(b.ancestralidade));
+  });
+
+  Promise.all([ref, tal, anc]).then(() => {
+
+    isLoading.value = false
+  });
+});
+
+const talentosFilter: ComputedRef<Talento[]> = computed(() => {
+  if (ancestralidade.value === undefined) return []
+  const id = Number(ancestralidade.value.id);
+  return talentos.value.filter((a) => a.tracos.includes(id));
+});
+
+const ancestralidade: ComputedRef<Ancestralidade | undefined> = computed(() => {
+  if (route.query.id === undefined) return undefined
+  const id = Number(route.query.id)
+  return ancestralidades.value.find((a) => a.id === id)
+});
+
+const herancas: ComputedRef<Heranca | undefined> = computed(() => {
+  if (ancestralidade.value === undefined) return undefined
+  const id = Number(ancestralidade.value.id);
+  return findHerancas(id)
+});
 
 const columns = ref([
   { title: 'Título', key: 'titulo' },

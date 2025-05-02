@@ -28,7 +28,11 @@ import TableComponenet from '@/components/TableComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import equipamentos from '@/data/equipamentosAventura.json'
 import type EquipamentoAventura from '@/interfaces/EquipamentoAventura'
-import { findEquipamentoAventura, findReferencia } from '@/data/utils'
+import { findEquipamentoAventura } from '@/data/utils'
+import type Referencia from '@/interfaces/Referencia'
+
+const referencias: Ref<Referencia[]> = ref([])
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
 
 const route = useRoute()
 

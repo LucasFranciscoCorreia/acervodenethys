@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { findEscudo, findReferencia } from '@/data/utils'
+import { findEscudo } from '@/data/utils'
 import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -27,7 +27,11 @@ import escudos from '@/data/escudos.json'
 import TableComponenet from '@/components/TableComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import type Escudo from '@/interfaces/Escudo'
+import type Referencia from '@/interfaces/Referencia'
 
+
+const referencias: Ref<Referencia[]> = ref([])
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
 const route = useRoute()
 
 const escudo: Ref<Escudo | undefined> = ref(findEscudo(Number(route.query.id)))

@@ -1,50 +1,60 @@
 <template>
-  <div v-if="!condicao">
-    <table>
-      <thead>
-        <tr>
-          <th>Condição</th>
-          <th>Descrição</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="condicao in condicoes" :key="condicao.id">
-          <td>
-            <RouterLink :to="'/condicoes?id=' + condicao.id">{{ condicao.condicao }}</RouterLink>
-          </td>
-          <td>{{ condicao.descricao }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="isloading justify-content-center align-items-center" v-if="isLoading" >
+    <LoadingComponent  />
+  </div>
+  <div v-else-if="!condicao">
+      <table>
+        <thead>
+          <tr>
+            <th>Condição</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="condicao in condicoes" :key="condicao.id">
+            <td>
+              <RouterLink :to="'/condicoes?id=' + condicao.id">{{ condicao.condicao }}</RouterLink>
+            </td>
+            <td>{{ condicao.descricao }}</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
   <DescricaoComponent v-else :title="condicao.condicao" :descricao="condicao.descricao" />
 </template>
 
 <script setup lang="ts">
-import condicoes from '@/data/condicoes.json'
 import type Condicao from '@/interfaces/Condicao'
-import { ref, watch, type Ref } from 'vue'
+import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { findCondicao } from '@/data/utils'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
+import LoadingComponent from '@/components/LoadingComponent.vue'
+import HttpRequest from '@/http.request'
 
+const condicoes: Ref<Condicao[]> = ref([])
 const route = useRoute()
-const condicao: Ref<Condicao | undefined> = ref(findCondicao(Number(route.query.id)))
-watch(
-  () => route.query.id,
-  (newCondicao) => {
-    const condition = findCondicao(Number(newCondicao))
-    if (!condition) {
-      condicao.value = undefined
-    } else {
-      condicao.value = condition
-    }
-  },
-  { immediate: true },
-)
+const isLoading = ref(true)
+
+onMounted(async () => {
+  isLoading.value = true
+  condicoes.value = await HttpRequest.instance.getCondicoes();
+  isLoading.value = false
+})
+
+const condicao: ComputedRef<Condicao | undefined> = computed(() => {
+  if (route.query.id === undefined) return undefined
+  const id = Number(route.query.id)
+  return condicoes.value.find((a) => a.id === id)
+});
 </script>
 
 <style scoped>
+.isloading {
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+}
 table {
   width: 100%;
   border-collapse: collapse;

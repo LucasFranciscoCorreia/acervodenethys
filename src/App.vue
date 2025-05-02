@@ -7,12 +7,20 @@ import SidebarComponent from '@/components/SidebarComponent.vue'
   <HeaderComponent />
   <div class="main-content">
     <SidebarComponent />
-    <RouterView />
+    <div class="content-wrapper">
+      <RouterView />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .main-content {
   display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.content-wrapper{
+  width:100%
 }
 </style>

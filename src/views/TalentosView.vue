@@ -14,43 +14,62 @@
     :nivel="talento.nivel"
     :tracos="talento.tracos"
     :descricao="talento.descricao"
-    :sources="talento.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+    :sources="talento.referencia.map((el: Referencia) => findReferencia(el.id)).filter((el: Referencia) => el !== undefined)"
   />
 </template>
 
 <script lang="ts" setup>
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
 import TableComponent from '@/components/TableComponent.vue'
-import {
-  collectTalentosGerais,
-  collectTalentosGeraisOnly,
-  collectTalentosPericia,
-  findReferencia,
-  findTalento,
-} from '@/data/utils'
+import HttpRequest from '@/http.request'
 import type Column from '@/interfaces/Column'
 import type Talento from '@/interfaces/Talento'
-import { ref, watch, type Ref } from 'vue'
+import type Referencia from '@/interfaces/Referencia'
+import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { Tracos } from '@/enums/tracos'
 
 const route = useRoute()
+const referencias: Ref<Referencia[]> = ref([])
+const isLoading = ref(true)
 
-const collectTalentosByCategoria = (categoria: string): Talento[] => {
-  switch (categoria) {
+onMounted(() => {
+  isLoading.value = true
+  const ref = HttpRequest.instance.getReferencias().then(res => {
+    referencias.value = res
+    isLoading.value = false
+  });
+
+  const tal = HttpRequest.instance.getTalentos().then(res => {
+    talentos.value = res
+    isLoading.value = false
+  });
+
+  Promise.all([ref, tal]).then(() => {
+    isLoading.value = false
+  })
+})
+
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
+
+const talentos: Ref<Talento[]> = ref([])
+
+const talentosGerais = computed(() => talentos.value.filter((a) => a.tracos.includes(Tracos.GERAL) && !a.tracos.includes(Tracos.PERICIA)))
+const talentosPericia = computed(() => talentos.value.filter((a) => a.tracos.includes(Tracos.PERICIA)))
+
+const talento: ComputedRef = computed(() => {
+  if (route.query.id === undefined) return undefined
+  const id = Number(route.query.id)
+  const categoria = String(route.query.categoria)
+  switch(categoria){
     case 'gerais':
-      return collectTalentosGeraisOnly.value
-      break
+      return talentosGerais.value.find((a) => a.id === id)
     case 'pericia':
-      return collectTalentosPericia.value
-      break
+      return talentosPericia.value.find((a) => a.id === id)
     default:
-      return collectTalentosGerais.value
+      return talentos.value.find((a) => a.id === id)
   }
-}
-
-const talentos = ref(collectTalentosByCategoria(String(route.query.categoria)))
-
-const talento: Ref<Talento | undefined> = ref(findTalento(Number(route.query.id)))
+});
 
 const columns: Ref<Column[]> = ref([
   {
@@ -65,25 +84,5 @@ const columns: Ref<Column[]> = ref([
     title: 'Tracos',
     key: 'tracos',
   },
-])
-
-watch(
-  () => route.query.id,
-  (newTalento) => {
-    const feat = findTalento(Number(newTalento))
-    if (!feat) {
-      talento.value = undefined
-    } else {
-      talento.value = feat
-    }
-  },
-  { immediate: true },
-)
-
-watch(
-  () => route.query.categoria,
-  (newCategoria) => {
-    talentos.value = collectTalentosByCategoria(String(newCategoria as string))
-  },
-)
+]);
 </script>

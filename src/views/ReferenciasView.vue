@@ -22,27 +22,28 @@
 
 <script lang="ts" setup>
 import type Referencia from '@/interfaces/Referencia'
-import { ref, watch, type Ref } from 'vue'
+import { computed, onMounted, ref, type ComputedRef, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
-import referencias from '@/data/referencias.json'
-import { findReferencia } from '@/data/utils'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
+import HttpRequest from '@/http.request'
 
+const referencias: Ref<Referencia[]> = ref([])
 const route = useRoute()
-const referencia: Ref<Referencia | undefined> = ref(findReferencia(Number(route.query.id)))
+const isLoading: Ref<boolean> = ref(true)
 
-watch(
-  () => route.query.id,
-  (newReferencia) => {
-    const source = findReferencia(Number(newReferencia))
-    if (!source) {
-      referencia.value = undefined
-    } else {
-      referencia.value = source
-    }
-  },
-  { immediate: true },
-)
+onMounted(() => {
+  isLoading.value = true
+  HttpRequest.instance.getReferencias().then(res => {
+    referencias.value = res
+    isLoading.value = false
+  });
+})
+
+const referencia: ComputedRef<Referencia | undefined> = computed(() => {
+  if (route.query.id === undefined) return undefined
+  const id = Number(route.query.id)
+  return referencias.value.find((a) => a.id === id)
+});
 </script>
 
 <style scoped>

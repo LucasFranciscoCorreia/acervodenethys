@@ -1,5 +1,5 @@
 export default interface Referencia {
-  id: string
+  id: number
   titulo: string
   categoria: string
   url: string

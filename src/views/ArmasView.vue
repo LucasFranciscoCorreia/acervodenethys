@@ -9,16 +9,20 @@
     :nivel="0"
     :tracos="arma.tracos"
     :descricao="arma.descricao"
-    :sources="arma.referencia.map((el) => findReferencia(el)).filter((el) => el != undefined)"
+    :sources="arma.referencia.map((el: number) => findReferencia(el)).filter((el): el is Referencia => el !== undefined)"
   />
 </template>
 
 <script setup lang="ts">
-import { findArma, findReferencia } from '@/data/utils'
-import type Arma from '@/interfaces/Arma'
-import type Column from '@/interfaces/Column'
 import { ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
+
+import { findArma } from '@/data/utils'
+
+import type Arma from '@/interfaces/Arma'
+import type Column from '@/interfaces/Column'
+import type Referencia from '@/interfaces/Referencia'
+
 import armas from '@/data/armas.json'
 import TableComponenet from '@/components/TableComponent.vue'
 import DescricaoComponent from '@/components/DescricaoComponent.vue'
@@ -26,6 +30,9 @@ import DescricaoComponent from '@/components/DescricaoComponent.vue'
 const route = useRoute()
 
 const arma: Ref<Arma | undefined> = ref(findArma(Number(route.query.id)))
+const referencias: Ref<Referencia[]> = ref([])
+
+const findReferencia = (id: number) => referencias.value.find((a) => a.id === id)
 
 const columns: Ref<Column[]> = ref([
   {
